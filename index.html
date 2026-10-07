@@ -3,14 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Citable：检测网页能否被 AI 搜索引用</title>
-<meta name="description" content="免费浏览器插件：打开任意网页点一下，看 14 个国内外 AI 平台能不能引用这个页面、为什么，以及可以直接复制的修复代码。检测在本地完成，不上传网页内容。">
+<title>Citable：检测网页能否被 AI 搜索引用（免费在线检测 + 浏览器插件）</title>
+<meta name="description" content="输入网址，免费检测你的网页能否被豆包、Kimi、DeepSeek、ChatGPT、Perplexity 等 14 个国内外 AI 搜索抓取和引用：逐个平台给出结论和原因，并告诉你先改哪 3 件事。">
 <link rel="canonical" href="https://citable.mrrpeek.com/">
+<link rel="icon" href="img/icon-128.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Citable：检测网页能否被 AI 搜索引用">
-<meta property="og:description" content="打开网页点一下，看 14 个 AI 平台能不能引用它，以及怎么改。">
+<meta property="og:title" content="Citable：你的网页，AI 搜索能引用吗？">
+<meta property="og:description" content="免费在线检测：14 个国内外 AI 平台逐个给结论，并告诉你先改哪 3 件事。">
 <meta property="og:url" content="https://citable.mrrpeek.com/">
 <meta property="og:image" content="https://citable.mrrpeek.com/img/report-2026-10.png">
+<meta property="og:site_name" content="Citable">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,7 +23,8 @@
       "@id": "https://citable.mrrpeek.com/#org",
       "name": "Citable",
       "url": "https://citable.mrrpeek.com/",
-      "logo": "https://citable.mrrpeek.com/img/icon-128.png"
+      "logo": "https://citable.mrrpeek.com/img/icon-128.png",
+      "email": "wuyuwentian@gmail.com"
     },
     {
       "@type": "SoftwareApplication",
@@ -28,58 +32,363 @@
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Chrome, Microsoft Edge",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
-      "publisher": { "@id": "https://citable.mrrpeek.com/#org" }
+      "publisher": { "@id": "https://citable.mrrpeek.com/#org" },
+      "image": "https://citable.mrrpeek.com/img/shot-platforms.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Citable 收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "免费，不用注册。在线检测和浏览器插件都不收费。" } },
+        { "@type": "Question", "name": "会把我的网页内容上传吗？", "acceptedAnswer": { "@type": "Answer", "text": "插件在你的浏览器本地检测，网页内容不会上传到我们的服务器。首页的在线检测需要把你输入的网址发到我们的服务器，由服务器读取该网页的公开内容，结果只在内存中缓存最多 1 小时，不写入磁盘，也不和任何身份关联。" } },
+        { "@type": "Question", "name": "检测结论准确吗？", "acceptedAnswer": { "@type": "Answer", "text": "每条结论都标注依据：来自平台官方文档、公开研究还是行业经验。依据不足时（例如 DeepSeek、Grok 没有公开爬虫）直接写「无法确认」，不编结论。觉得结论不对，可以在插件里点「不准确」或通过反馈页告诉我们。" } },
+        { "@type": "Question", "name": "和传统 SEO 工具有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "SEO 工具关心的是在搜索结果里排第几。Citable 关心的是 AI 搜索能不能读到、能不能引用你的页面：逐个 AI 平台判断爬虫能否进入、不执行 JavaScript 时能否看到正文、AI 能否认出你是谁，并给出可以直接复制的修复代码。" } },
+        { "@type": "Question", "name": "在线检测和插件有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "在线检测是快速版：只读取服务器返回的 HTML，几秒出结果，适合先看个大概。插件能对比浏览器渲染后的页面（发现靠 JavaScript 渲染、AI 爬虫看不到的正文），给出修复代码和完整报告，也能检测需要登录或内网的页面。" } },
+        { "@type": "Question", "name": "改完多久能被 AI 引用？", "acceptedAnswer": { "@type": "Answer", "text": "取决于各平台重新抓取你的页面的频率，通常几天到几周不等，我们无法控制。能做的是改完立刻复测，确认页面本身已经没有问题。" } }
+      ]
     }
   ]
 }
 </script>
 <style>
-:root{--bg:#f5f6f8;--card:#fff;--fg:#141821;--muted:#5d6573;--line:#e3e6eb;--accent:#2443c9;--track:#e8ebf2;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111318;--card:#181b22;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--track:#262b36;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#111318;--card:#181b22;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--track:#262b36;color-scheme:dark}
+:root{--bg:#f6f7f9;--surface:#fff;--surface-2:#eef1f7;--fg:#141821;--muted:#5d6573;--line:#e3e6eb;--accent:#2443c9;--accent-ink:#fff;--accent-soft:#e8edfc;--ok:#167a43;--ok-bg:#e3f4ea;--warn:#985a00;--warn-bg:#fdf1dc;--bad:#c0322b;--bad-bg:#fde7e5;--na:#6b7280;--na-bg:#eceef2;--shadow:0 18px 48px rgba(20,24,33,.12);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1116;--surface:#171a21;--surface-2:#1d212a;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--accent-ink:#0f1116;--accent-soft:#1f2747;--ok:#5fd394;--ok-bg:#163525;--warn:#f0b35c;--warn-bg:#3a2b12;--bad:#ff8a80;--bad-bg:#3d1c1a;--na:#a0a7b4;--na-bg:#262a33;--shadow:0 18px 48px rgba(0,0,0,.45);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1116;--surface:#171a21;--surface-2:#1d212a;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--accent-ink:#0f1116;--accent-soft:#1f2747;--ok:#5fd394;--ok-bg:#163525;--warn:#f0b35c;--warn-bg:#3a2b12;--bad:#ff8a80;--bad-bg:#3d1c1a;--na:#a0a7b4;--na-bg:#262a33;--shadow:0 18px 48px rgba(0,0,0,.45);color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding-inline:16px}
-main{max-width:720px;margin:0 auto;padding-block:48px 64px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
-h1{font-size:30px;line-height:1.35;margin:0 0 12px}
-h2{font-size:20px;margin:40px 0 12px}
-.lead{font-size:17px;color:var(--muted);margin:0 0 20px}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 8px}
-.btn{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
-.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-.btn.pending{background:var(--track);color:var(--muted);border-color:transparent;cursor:default}
-.note{color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.card b{display:block;margin-bottom:4px}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media (min-width:720px){.wrap{padding-inline:28px}}
+[hidden]{display:none!important}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}
+.brand i{font-style:normal;color:var(--accent);font-size:22px;line-height:1}
+.nav nav{display:none;gap:22px;margin-left:auto}
+.nav nav a{color:var(--muted);text-decoration:none;font-size:15px}
+.nav nav a:hover{color:var(--fg)}
+.nav .nav-cta{margin-left:auto}
+@media (min-width:860px){.nav nav{display:flex}.nav .nav-cta{margin-left:8px}}
+
+/* 按钮 */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.secondary{background:transparent;color:var(--accent)}
+.btn.pending{background:var(--na-bg);color:var(--na);border-color:transparent;cursor:default}
+.btn.small{min-height:36px;padding:0 14px;font-size:14px}
+.btn:disabled{opacity:.6;cursor:progress}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+
+/* 首屏 */
+.hero{padding:48px 0 40px}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media (min-width:960px){.hero{padding:72px 0 56px}.hero .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px;margin:0 0 16px}
+h1{font-size:clamp(30px,5.2vw,50px);line-height:1.18;letter-spacing:-.01em;margin:0 0 16px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 24px;max-width:36em}
+.check{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.check form{display:flex;flex-wrap:wrap;gap:10px}
+.check label{flex-basis:100%;font-weight:600;font-size:15px}
+.check input{flex:1 1 240px;min-width:0;min-height:48px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);font:inherit;font-size:16px}
+.check input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.check .btn{min-height:48px;padding:0 22px;font-size:16px}
+.examples{margin:10px 0 0;font-size:14px;color:var(--muted)}
+.examples a{margin-right:10px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin:18px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.trust li::before{content:"✓";color:var(--ok);font-weight:700;margin-right:6px}
+.hero-shot{justify-self:center;width:min(100%,420px);border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--surface)}
+.hero-shot figcaption{font-size:13px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
+
+/* 检测结果 */
+.result{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
+.res-loading{display:flex;align-items:center;gap:12px;color:var(--muted);min-height:48px}
+.spinner{width:20px;height:20px;border-radius:50%;border:3px solid var(--accent-soft);border-top-color:var(--accent);animation:spin .8s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spinner{animation-duration:2.4s}}
+.res-error{color:var(--bad);margin:0}
+.res-head{display:flex;gap:16px;align-items:center;margin-bottom:12px}
+.ring{--p:0;--tone:var(--accent);flex:none;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;align-content:center;background:radial-gradient(closest-side,var(--surface) 76%,transparent 77%),conic-gradient(var(--tone) calc(var(--p)*1%),var(--line) 0)}
+.ring[data-tone="ok"]{--tone:var(--ok)}.ring[data-tone="warn"]{--tone:var(--warn)}.ring[data-tone="bad"]{--tone:var(--bad)}.ring[data-tone="na"]{--tone:var(--na)}
+.ring b{font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.ring span{font-size:12px;color:var(--muted)}
+.res-meta{display:grid;gap:2px;min-width:0}
+.res-meta strong{font-size:17px}
+.res-url{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.cap{font-size:13px;color:var(--bad)}
+.note{font-size:13px;color:var(--muted)}
+.res-group{margin-top:14px}
+.res-group h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:600}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:6px}
+.chip{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:var(--surface)}
+.chip-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip-st{flex:none;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px}
+.chip.ok .chip-st{color:var(--ok);background:var(--ok-bg)}.chip.warn .chip-st{color:var(--warn);background:var(--warn-bg)}.chip.bad .chip-st{color:var(--bad);background:var(--bad-bg)}.chip.muted .chip-st{color:var(--na);background:var(--na-bg)}
+.why{margin-top:10px;font-size:14px}
+.why summary{cursor:pointer;color:var(--accent)}
+.why ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+.fixes{margin:0;padding-left:22px;display:grid;gap:8px}
+.fixes li{font-size:14px}
+.fixes b{display:block;font-size:15px}
+.fixes span{color:var(--muted)}
+.res-cta{margin-top:16px;background:var(--accent-soft);border-radius:12px;padding:14px}
+.res-cta p{margin:0 0 10px;font-size:14px}
+.res-cta b{display:block;font-size:15px}
+
+/* 区块 */
+section{padding:56px 0}
+section.alt{background:var(--surface);border-block:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,34px);line-height:1.3;margin:0 0 12px;letter-spacing:-.01em}
+.section-lead{color:var(--muted);margin:0 0 28px;max-width:44em;font-size:17px}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.stat{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px}
+.stat b{display:block;font-size:40px;line-height:1.1;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px}
+.more{display:inline-block;margin-top:18px;font-weight:600}
+.feature{display:grid;gap:24px;align-items:center;padding:20px 0}
+@media (min-width:860px){.feature{grid-template-columns:1fr 1fr;gap:56px}.feature.flip .feature-shot{order:-1}}
+.feature h3{font-size:22px;margin:0 0 8px}
+.feature p{color:var(--muted);margin:0 0 10px}
+.feature ul{margin:0;padding-left:20px;color:var(--muted)}
+.feature-shot{justify-self:center;width:min(100%,360px);border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 60px;position:relative}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:18px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:14px}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:15px}
+.platforms{display:grid;gap:16px}
+@media (min-width:860px){.platforms{grid-template-columns:1fr 1fr}}
+.pf{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.pf h3{margin:0 0 10px;font-size:17px}
+.pf ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.pf li{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.pf li:last-child{border-bottom:0}
+.pf small{color:var(--muted);font-size:13px;text-align:right}
+.legend{font-size:14px;color:var(--muted);margin:14px 0 0}
+.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px}
+section:not(.alt) .card{background:var(--surface)}
+.card b{display:block;margin-bottom:4px;font-size:16px}
 .card p{margin:0;color:var(--muted);font-size:15px}
-.report{display:block;text-decoration:none;color:inherit;margin-top:12px}
-.report:hover b{color:var(--accent)}
-footer{color:var(--muted);font-size:13px;margin-top:48px;border-top:1px solid var(--line);padding-top:16px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--muted);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 14px;color:var(--muted)}
+.final{text-align:center}
+.final .btn-row{justify-content:center}
+.final .section-lead{margin-inline:auto}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
+footer a{color:var(--muted)}
 </style>
 </head>
-<body><main>
-<h1>你的网页，AI 搜索能不能引用？</h1>
-<p class="lead">Citable 是一个免费的浏览器插件。打开任意网页点一下，就能看到 14 个国内外 AI 平台（其中 12 个可以判断）能不能抓取和引用这个页面、为什么，以及可以直接复制的修复代码。</p>
-<div class="btns">
-<a class="btn" data-store="edge" data-campaign="home" data-pending-text="Edge 版审核中，即将上线">安装 Edge 版</a>
-<a class="btn secondary" data-store="chrome" data-campaign="home" data-pending-text="Chrome 版审核中，即将上线">安装 Chrome 版</a>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><i aria-hidden="true">❝</i>Citable</a>
+    <nav aria-label="页面导航">
+      <a href="#check">在线检测</a>
+      <a href="#features">能看到什么</a>
+      <a href="#platforms">覆盖平台</a>
+      <a href="report-2026-10.html">数据报告</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="nav-cta">
+      <span data-when="live" hidden><span class="btn-row" data-store-group><a class="btn small" data-store="edge" data-campaign="nav">安装 Edge 版</a><a class="btn small" data-store="chrome" data-campaign="nav">安装 Chrome 版</a></span></span>
+      <a class="btn small secondary" data-when="pending" href="#check">免费检测</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="check">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">免费 · 不用注册 · 几秒出结果</p>
+      <h1>你的网页，<br>AI 搜索能引用吗？</h1>
+      <p class="lead">越来越多的人直接问 AI。Citable 逐个检查豆包、Kimi、DeepSeek、ChatGPT、Perplexity 等 14 个国内外 AI 平台能不能抓取你的页面、为什么，并告诉你先改哪 3 件事。</p>
+      <div class="check">
+        <form id="check-form" novalidate>
+          <label for="check-url">输入一个网址，免费检测</label>
+          <input id="check-url" name="url" type="url" inputmode="url" autocomplete="url" placeholder="https://www.example.com/blog/post" required>
+          <button class="btn" type="submit">开始检测</button>
+        </form>
+        <p class="examples">试试：<a href="#" data-example="https://sspai.com/post/115308">一篇科技媒体文章</a><a href="#" data-example="https://citable.mrrpeek.com/report-2026-10.html">我们自己的数据报告页</a></p>
+        <div class="result" id="check-result" aria-live="polite" hidden></div>
+      </div>
+      <ul class="trust">
+        <li>国内 7 个 + 海外 7 个 AI 平台</li>
+        <li>每条结论标注依据，拿不准就写「无法确认」</li>
+        <li>浏览器插件在本地检测，网页内容不上传</li>
+      </ul>
+    </div>
+    <figure class="hero-shot" style="margin:0">
+      <img src="img/shot-platforms.png" width="460" height="600" alt="Citable 插件界面：得分 74，海外 AI 平台中 Perplexity 被挡住、其余可引用，下方是先改这 3 件事">
+      <figcaption>插件界面：打开任意网页点一下图标</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>多数网站，AI 进得来，却读不懂</h2>
+    <p class="section-lead">我们用同一套规则检测了 100 个中文网站首页和 32 篇文章页（2026 年 10 月）。</p>
+    <div class="stats">
+      <div class="stat"><b>95%</b><span>的首页没有挡住 AI 搜索爬虫</span></div>
+      <div class="stat"><b>14%</b><span>的首页有结构化数据，AI 才能准确理解内容</span></div>
+      <div class="stat"><b>3%</b><span>的首页声明了网站背后的组织，告诉 AI「我是谁」</span></div>
+      <div class="stat"><b>8%</b><span>的文章页同时标注了发布和更新日期</span></div>
+    </div>
+    <a class="more" href="report-2026-10.html">看完整报告：100 个中文网站 AI 搜索可见性实测 →</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>点一下，看到这三件事</h2>
+    <p class="section-lead">插件读取的是你正在看的页面，所以登录后的页面、测试环境、刚发布还没被收录的文章都能检测。</p>
+    <div class="feature">
+      <div>
+        <h3>每个 AI 平台能不能引用，点开就是原因</h3>
+        <p>国内、海外分组，逐个平台给出「可引用 / 受限 / 被挡住 / 无法确认」。点开任意一项，能看到具体是哪条规则挡住了哪个爬虫、该怎么改，以及依据来自哪份官方文档。</p>
+        <ul><li>按 robots.txt 标准判断，包括分组、通配和继承规则</li><li>拿不准的平台不编结论，写明「无法确认」</li></ul>
+      </div>
+      <figure class="feature-shot" style="margin:0"><img src="img/shot-reason.png" width="460" height="320" loading="lazy" alt="展开某项检查：说明 robots.txt 规则、给出可复制的修复片段，并附官方文档依据链接"></figure>
+    </div>
+    <div class="feature flip">
+      <div>
+        <h3>先改这 3 件事，修复代码直接复制</h3>
+        <p>30 多条检查按影响排序，最该先改的放在最前面。robots.txt 片段、Organization 和 Article 结构化数据等修复代码自动生成，复制就能用。</p>
+        <ul><li>每条检查标注证据强度：官方文档、研究、行业经验还是新兴做法</li><li>不适用的检查自动跳过，比如首页不检查文章作者</li></ul>
+      </div>
+      <figure class="feature-shot" style="margin:0"><img src="img/shot-fixes.png" width="460" height="600" loading="lazy" alt="先改这 3 件事：每项带说明和复制修复代码按钮"></figure>
+    </div>
+    <div class="feature">
+      <div>
+        <h3>找出 AI 爬虫看不到的内容</h3>
+        <p>多数 AI 爬虫不执行 JavaScript，只能读到服务器返回的 HTML。插件对比服务器返回的页面和你在浏览器里看到的页面，告诉你有多少正文 AI 根本读不到。</p>
+        <ul><li>正文靠 JavaScript 渲染时，分数会被封顶并说明原因</li><li>会渲染 JavaScript 的平台（如 Google）单独判断</li></ul>
+      </div>
+      <figure class="feature-shot" style="margin:0"><img src="img/shot-render.png" width="460" height="600" loading="lazy" alt="正文依赖 JavaScript 渲染时，多个平台显示受限"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>三步用起来</h2>
+    <ol class="steps">
+      <li><b>安装插件</b><span>Chrome、Edge 都能用；国内网络通常可以直接打开 Edge 加载项商店。</span></li>
+      <li><b>打开要检测的网页，点图标</b><span>1–2 秒出结果，只读取当前这一页。</span></li>
+      <li><b>按顺序改，改完再测一次</b><span>复制修复代码交给开发，或者导出 Markdown 报告发给团队。</span></li>
+    </ol>
+    <div class="btn-row" style="margin-top:22px">
+      <span data-when="live" hidden><span class="btn-row" data-store-group><a class="btn" data-store="edge" data-campaign="steps">免费安装 Edge 版</a><a class="btn" data-store="chrome" data-campaign="steps">免费安装 Chrome 版</a></span></span>
+      <span data-when="pending" class="note" style="font-size:15px">插件正在 Chrome 和 Edge 商店审核中。<a data-notify href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82" data-campaign="steps">写信订阅上线提醒</a>（wuyuwentian@gmail.com），上线当天回复你一次；现在可以先用上面的在线检测。</span>
+    </div>
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <h2>覆盖 14 个 AI 平台，依据如实标注</h2>
+    <p class="section-lead">各平台公开的信息多少不一样。我们按依据强弱分级，不把猜测当结论。</p>
+    <div class="platforms">
+      <div class="pf">
+        <h3>国内 AI</h3>
+        <ul>
+          <li>Kimi<small>官方公开爬虫</small></li>
+          <li>百度 AI 搜索 / 文心<small>依赖百度搜索索引</small></li>
+          <li>腾讯元宝<small>依赖搜狗搜索索引</small></li>
+          <li>豆包<small>二手信息（Bytespider）</small></li>
+          <li>通义 / 夸克<small>二手信息（YisouSpider）</small></li>
+          <li>纳米 AI 搜索（360）<small>二手信息（360Spider）</small></li>
+          <li>DeepSeek<small>未公开爬虫，标为「无法确认」</small></li>
+        </ul>
+      </div>
+      <div class="pf">
+        <h3>海外 AI</h3>
+        <ul>
+          <li>ChatGPT 搜索<small>官方公开爬虫（OAI-SearchBot）</small></li>
+          <li>Claude<small>官方公开爬虫（Claude-SearchBot）</small></li>
+          <li>Perplexity<small>官方公开爬虫（PerplexityBot）</small></li>
+          <li>Google AI 搜索<small>Googlebot，会渲染 JavaScript</small></li>
+          <li>Microsoft Copilot<small>Bingbot</small></li>
+          <li>Meta AI<small>官方公开爬虫（Meta-WebIndexer）</small></li>
+          <li>Grok（xAI）<small>未公开爬虫，标为「无法确认」</small></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legend">「二手信息」指平台没有官方说明、只有行业报道的对应关系，结论会单独注明；屏蔽训练用的爬虫（如 GPTBot、ClaudeBot）不影响 AI 搜索引用，插件会分开说明。</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>适合谁</h2>
+    <div class="cards">
+      <div class="card"><b>网站运营、SEO / GEO</b><p>改版或发文前过一遍，确认没有误挡 AI 爬虫，也知道下一步先改什么。</p></div>
+      <div class="card"><b>内容团队</b><p>看文章有没有作者、日期、清晰的小节和首段结论，这些决定 AI 能不能摘录你的内容。</p></div>
+      <div class="card"><b>独立站与出海团队</b><p>同时看国内和海外 AI 平台，一份报告就能说清两边的差别。</p></div>
+      <div class="card"><b>前端开发</b><p>直接拿到 robots.txt 片段和结构化数据代码，并知道哪些正文因为 JavaScript 渲染而被漏掉。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>隐私与可信</h2>
+    <div class="cards">
+      <div class="card"><b>点击时才读取当前页</b><p>插件只申请「点击时读取当前网站」的权限，不会在后台读取你浏览的任何页面。</p></div>
+      <div class="card"><b>本地检测，不上传网页</b><p>检测在你的浏览器里完成，网页内容不会上传到我们的服务器。</p></div>
+      <div class="card"><b>统计默认关闭</b><p>匿名使用统计需要你主动同意，可以随时关闭，也从不记录你检测的网址。</p></div>
+      <div class="card"><b>出错就公开更正</b><p>数据报告里的每一处更正都写在页面上。觉得结论不对？<a href="feedback.html">告诉我们</a>。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt faq" id="faq">
+  <div class="wrap">
+    <h2>常见问题</h2>
+    <details><summary>Citable 收费吗？</summary><p>免费，不用注册。在线检测和浏览器插件都不收费。</p></details>
+    <details><summary>会把我的网页内容上传吗？</summary><p>插件在你的浏览器本地检测，网页内容不会上传到我们的服务器。首页的在线检测需要把你输入的网址发到我们的服务器，由服务器读取该网页的公开内容，结果只在内存中缓存最多 1 小时，不写入磁盘，也不和任何身份关联。</p></details>
+    <details><summary>检测结论准确吗？</summary><p>每条结论都标注依据：来自平台官方文档、公开研究还是行业经验。依据不足时（例如 DeepSeek、Grok 没有公开爬虫）直接写「无法确认」，不编结论。觉得结论不对，可以在插件里点「不准确」或通过<a href="feedback.html">反馈页</a>告诉我们。</p></details>
+    <details><summary>和传统 SEO 工具有什么不同？</summary><p>SEO 工具关心的是在搜索结果里排第几。Citable 关心的是 AI 搜索能不能读到、能不能引用你的页面：逐个 AI 平台判断爬虫能否进入、不执行 JavaScript 时能否看到正文、AI 能否认出你是谁，并给出可以直接复制的修复代码。</p></details>
+    <details><summary>在线检测和插件有什么区别？</summary><p>在线检测是快速版：只读取服务器返回的 HTML，几秒出结果，适合先看个大概。插件能对比浏览器渲染后的页面（发现靠 JavaScript 渲染、AI 爬虫看不到的正文），给出修复代码和完整报告，也能检测需要登录或内网的页面。</p></details>
+    <details><summary>改完多久能被 AI 引用？</summary><p>取决于各平台重新抓取你的页面的频率，通常几天到几周不等，我们无法控制。能做的是改完立刻复测，确认页面本身已经没有问题。</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>先测一个你最在意的页面</h2>
+    <p class="section-lead">首页、最重要的产品页，或者最近发布的一篇文章。</p>
+    <div class="btn-row">
+      <a class="btn" href="#check">免费在线检测</a>
+      <span data-when="live" hidden><span class="btn-row" data-store-group><a class="btn" data-store="edge" data-campaign="final">安装 Edge 版</a><a class="btn" data-store="chrome" data-campaign="final">安装 Chrome 版</a></span></span>
+      <a class="btn secondary" data-when="pending" data-notify data-campaign="final" href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">插件上线时提醒我</a>
+    </div>
+    <p class="note" data-when="pending" style="margin-top:10px">点按钮会打开邮件，发给 wuyuwentian@gmail.com 即可；在微信里打开可以复制这个地址。</p>
+  </div>
+</section>
+
+<!-- 检测结果里的安装按钮模板（check.js 复制使用） -->
+<div data-cta-template hidden>
+  <span data-when="live" hidden><span class="btn-row" data-store-group><a class="btn small" data-store="edge">安装 Edge 版</a><a class="btn small" data-store="chrome">安装 Chrome 版</a></span></span>
+  <span data-when="pending" class="note">插件正在商店审核中，<a data-notify href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">写信订阅上线提醒</a>（wuyuwentian@gmail.com）。</span>
 </div>
-<p data-notify hidden class="note" style="margin:12px 0 0">想在上线当天收到通知？<a href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">写一封主题为「上线提醒」的邮件给我们</a>（wuyuwentian@gmail.com，在微信里打开可以复制地址），上线后回复你一次，不做其他用途。</p>
-<p class="note">国内网络通常可以直接打开 Edge 加载项商店。检测在你的浏览器本地完成，网页内容不会上传到我们的服务器；匿名使用统计默认关闭。</p>
-
-<h2>能看到什么</h2>
-<div class="grid">
-<div class="card"><b>逐个平台的结论</b><p>国内 7 个、海外 7 个 AI 平台，逐个给出「可引用 / 受限 / 被挡住 / 无法确认」和原因。</p></div>
-<div class="card"><b>先改这 3 件事</b><p>按影响排序；robots.txt、结构化数据等修复代码自动生成，一键复制。</p></div>
-<div class="card"><b>AI 看不到的内容</b><p>多数 AI 爬虫不执行 JavaScript。对比服务器返回的页面和浏览器里的页面，找出被漏掉的正文。</p></div>
-<div class="card"><b>每条结论都有依据</b><p>标注来自官方文档、研究还是行业经验；拿不准的就写「无法确认」，不编结论。</p></div>
-</div>
-
-<h2>数据报告</h2>
-<a class="card report" href="report-2026-10.html"><b>100 个中文网站 AI 搜索可见性实测（2026 年 10 月）</b><p>95% 的首页没有挡住 AI 搜索爬虫，但只有 14% 有结构化数据，3% 声明了组织实体。</p></a>
-
-<footer>Citable · <a href="feedback.html">反馈与支持</a> · <a href="privacy.html">隐私政策</a></footer>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>Citable · 检测网页能否被 AI 搜索引用 · 联系：wuyuwentian@gmail.com</span>
+    <span><a href="report-2026-10.html">数据报告</a> · <a href="feedback.html">反馈</a> · <a href="privacy.html">隐私政策</a></span>
+  </div>
+</footer>
 <script src="links.js"></script>
+<script src="check.js"></script>
 </body></html>
