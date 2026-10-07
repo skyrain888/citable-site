@@ -6,12 +6,14 @@
 <title>Citable：检测网页能否被 AI 搜索引用（免费在线检测 + 浏览器插件）</title>
 <meta name="description" content="输入网址，免费检测你的网页能否被豆包、Kimi、DeepSeek、ChatGPT、Perplexity 等 14 个国内外 AI 搜索抓取和引用：逐个平台给出结论和原因，并告诉你先改哪 3 件事。">
 <link rel="canonical" href="https://citable.mrrpeek.com/">
-<link rel="icon" href="img/icon-128.png">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="img/icon-128.png" type="image/png">
+<link rel="apple-touch-icon" href="img/icon-128.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Citable：你的网页，AI 搜索能引用吗？">
 <meta property="og:description" content="免费在线检测：14 个国内外 AI 平台逐个给结论，并告诉你先改哪 3 件事。">
 <meta property="og:url" content="https://citable.mrrpeek.com/">
-<meta property="og:image" content="https://citable.mrrpeek.com/img/report-2026-10.png">
+<meta property="og:image" content="https://citable.mrrpeek.com/img/og-home.png">
 <meta property="og:site_name" content="Citable">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
@@ -33,13 +35,15 @@
       "operatingSystem": "Chrome, Microsoft Edge",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
       "publisher": { "@id": "https://citable.mrrpeek.com/#org" },
+      "url": "https://citable.mrrpeek.com/",
+      "description": "检测网页能否被国内外 14 个 AI 搜索平台抓取和引用，逐个平台给出结论和原因，并生成可以直接复制的修复代码。",
       "image": "https://citable.mrrpeek.com/img/shot-platforms.png"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "Citable 收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "免费，不用注册。在线检测和浏览器插件都不收费。" } },
-        { "@type": "Question", "name": "会把我的网页内容上传吗？", "acceptedAnswer": { "@type": "Answer", "text": "插件在你的浏览器本地检测，网页内容不会上传到我们的服务器。首页的在线检测需要把你输入的网址发到我们的服务器，由服务器读取该网页的公开内容，结果只在内存中缓存最多 1 小时，不写入磁盘，也不和任何身份关联。" } },
+        { "@type": "Question", "name": "会把我的网页内容上传吗？", "acceptedAnswer": { "@type": "Answer", "text": "插件在你的浏览器本地检测，网页内容不会上传到我们的服务器。首页的在线检测需要把你输入的网址发到我们的服务器，由服务器读取该网页的公开内容，检测结果只保存在服务器内存中，1 小时后自动删除（服务重启也会清空），不写入磁盘，也不和任何身份关联。" } },
         { "@type": "Question", "name": "检测结论准确吗？", "acceptedAnswer": { "@type": "Answer", "text": "每条结论都标注依据：来自平台官方文档、公开研究还是行业经验。依据不足时（例如 DeepSeek、Grok 没有公开爬虫）直接写「无法确认」，不编结论。觉得结论不对，可以在插件里点「不准确」或通过反馈页告诉我们。" } },
         { "@type": "Question", "name": "和传统 SEO 工具有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "SEO 工具关心的是在搜索结果里排第几。Citable 关心的是 AI 搜索能不能读到、能不能引用你的页面：逐个 AI 平台判断爬虫能否进入、不执行 JavaScript 时能否看到正文、AI 能否认出你是谁，并给出可以直接复制的修复代码。" } },
         { "@type": "Question", "name": "在线检测和插件有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "在线检测是快速版：只读取服务器返回的 HTML，几秒出结果，适合先看个大概。插件能对比浏览器渲染后的页面（发现靠 JavaScript 渲染、AI 爬虫看不到的正文），给出修复代码和完整报告，也能检测需要登录或内网的页面。" } },
@@ -50,7 +54,7 @@
 }
 </script>
 <style>
-:root{--bg:#f6f7f9;--surface:#fff;--surface-2:#eef1f7;--fg:#141821;--muted:#5d6573;--line:#e3e6eb;--accent:#2443c9;--accent-ink:#fff;--accent-soft:#e8edfc;--ok:#167a43;--ok-bg:#e3f4ea;--warn:#985a00;--warn-bg:#fdf1dc;--bad:#c0322b;--bad-bg:#fde7e5;--na:#6b7280;--na-bg:#eceef2;--shadow:0 18px 48px rgba(20,24,33,.12);color-scheme:light}
+:root{--bg:#f6f7f9;--surface:#fff;--surface-2:#eef1f7;--fg:#141821;--muted:#5d6573;--line:#e3e6eb;--accent:#2443c9;--accent-ink:#fff;--accent-soft:#e8edfc;--ok:#167a43;--ok-bg:#e3f4ea;--warn:#985a00;--warn-bg:#fdf1dc;--bad:#c0322b;--bad-bg:#fde7e5;--na:#555b66;--na-bg:#eceef2;--shadow:0 18px 48px rgba(20,24,33,.12);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1116;--surface:#171a21;--surface-2:#1d212a;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--accent-ink:#0f1116;--accent-soft:#1f2747;--ok:#5fd394;--ok-bg:#163525;--warn:#f0b35c;--warn-bg:#3a2b12;--bad:#ff8a80;--bad-bg:#3d1c1a;--na:#a0a7b4;--na-bg:#262a33;--shadow:0 18px 48px rgba(0,0,0,.45);color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0f1116;--surface:#171a21;--surface-2:#1d212a;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--accent-ink:#0f1116;--accent-soft:#1f2747;--ok:#5fd394;--ok-bg:#163525;--warn:#f0b35c;--warn-bg:#3a2b12;--bad:#ff8a80;--bad-bg:#3d1c1a;--na:#a0a7b4;--na-bg:#262a33;--shadow:0 18px 48px rgba(0,0,0,.45);color-scheme:dark}
 *{box-sizing:border-box}
@@ -104,7 +108,10 @@ h1{font-size:clamp(30px,5.2vw,50px);line-height:1.18;letter-spacing:-.01em;margi
 .hero-shot figcaption{font-size:13px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
 
 /* 检测结果 */
-.result{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
+.result{margin-top:16px;border-top:1px solid var(--line);padding-top:16px;scroll-margin-top:76px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.res-h{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:600}
+@media (min-width:960px){.hero.has-result .wrap{grid-template-columns:minmax(0,1fr)}.hero.has-result .hero-shot{display:none}.hero.has-result .check{max-width:860px}}
 .res-loading{display:flex;align-items:center;gap:12px;color:var(--muted);min-height:48px}
 .spinner{width:20px;height:20px;border-radius:50%;border:3px solid var(--accent-soft);border-top-color:var(--accent);animation:spin .8s linear infinite;flex:none}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -122,10 +129,11 @@ h1{font-size:clamp(30px,5.2vw,50px);line-height:1.18;letter-spacing:-.01em;margi
 .note{font-size:13px;color:var(--muted)}
 .res-group{margin-top:14px}
 .res-group h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:600}
-.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
-.chip{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 8px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:var(--surface)}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+@media (min-width:640px){.chips{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.chip{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:var(--surface)}
 .chip-name{min-width:0;line-height:1.35}
-.chip-st{flex:none;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px}
+.chip-st{flex:none;white-space:nowrap;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px}
 .chip.ok .chip-st{color:var(--ok);background:var(--ok-bg)}.chip.warn .chip-st{color:var(--warn);background:var(--warn-bg)}.chip.bad .chip-st{color:var(--bad);background:var(--bad-bg)}.chip.muted .chip-st{color:var(--na);background:var(--na-bg)}
 .why{margin-top:10px;font-size:14px}
 .why summary{cursor:pointer;color:var(--accent)}
@@ -153,6 +161,7 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.3;margin:0 0 12px;letter-spaci
 .feature h3{font-size:22px;margin:0 0 8px}
 .feature p{color:var(--muted);margin:0 0 10px}
 .feature ul{margin:0;padding-left:20px;color:var(--muted)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .feature-shot img,:root:not([data-theme="light"]) .hero-shot img{filter:brightness(.88)}}
 .feature-shot{justify-self:center;width:min(100%,360px);border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
 .steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s;list-style:none;padding:0;margin:0}
 .steps li{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 60px;position:relative}
@@ -218,8 +227,10 @@ footer a{color:var(--muted)}
           <input id="check-url" name="url" type="url" inputmode="url" autocomplete="url" placeholder="https://www.example.com/blog/post" required>
           <button class="btn" type="submit">开始检测</button>
         </form>
-        <p class="examples">试试：<a href="#" data-example="https://sspai.com/post/115308">一篇科技媒体文章</a><a href="#" data-example="https://citable.mrrpeek.com/report-2026-10.html">我们自己的数据报告页</a></p>
-        <div class="result" id="check-result" aria-live="polite" hidden></div>
+        <p class="examples">试试：<a href="#" data-example="https://www.kuaishou.com/">快手首页（只放行部分 AI 爬虫）</a><a href="#" data-example="https://sspai.com/post/115308">一篇科技媒体文章</a></p>
+        <p class="note" data-when="pending" style="margin:10px 0 0">插件正在 Chrome 和 Edge 商店审核中，<a data-notify data-campaign="hero" href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">上线时提醒我</a>（wuyuwentian@gmail.com）；现在可以先用在线检测。</p>
+        <p class="sr-only" id="check-status" aria-live="polite"></p>
+        <div class="result" id="check-result" hidden></div>
       </div>
       <ul class="trust">
         <li>国内 7 个 + 海外 7 个 AI 平台</li>
@@ -236,13 +247,13 @@ footer a{color:var(--muted)}
 
 <section class="alt">
   <div class="wrap">
-    <h2>多数网站，AI 进得来，却读不懂</h2>
+    <h2>多数网站，AI 进得来，却认不出你是谁</h2>
     <p class="section-lead">我们用同一套规则检测了 100 个中文网站首页和 32 篇文章页（2026 年 10 月）。</p>
     <div class="stats">
-      <div class="stat"><b>95%</b><span>的首页没有挡住 AI 搜索爬虫</span></div>
-      <div class="stat"><b>14%</b><span>的首页有结构化数据，AI 才能准确理解内容</span></div>
+      <div class="stat"><b>95%</b><span>可检测的 93 个首页中，没有挡住 AI 搜索爬虫的比例</span></div>
+      <div class="stat"><b>约 1/5</b><span>的首页，服务器返回的 HTML 里几乎没有正文，不执行 JavaScript 的 AI 爬虫读不到</span></div>
+      <div class="stat"><b>14%</b><span>的首页有结构化数据（帮助 AI 认出实体，但不保证被引用）</span></div>
       <div class="stat"><b>3%</b><span>的首页声明了网站背后的组织，告诉 AI「我是谁」</span></div>
-      <div class="stat"><b>8%</b><span>的文章页同时标注了发布和更新日期</span></div>
     </div>
     <a class="more" href="report-2026-10.html">看完整报告：100 个中文网站 AI 搜索可见性实测 →</a>
   </div>
@@ -285,7 +296,7 @@ footer a{color:var(--muted)}
     <ol class="steps">
       <li><b>安装插件</b><span>Chrome、Edge 都能用；国内网络通常可以直接打开 Edge 加载项商店。</span></li>
       <li><b>打开要检测的网页，点图标</b><span>1–2 秒出结果，只读取当前这一页。</span></li>
-      <li><b>按顺序改，改完再测一次</b><span>复制修复代码交给开发，或者导出 Markdown 报告发给团队。</span></li>
+      <li><b>按顺序改，改完再测一次</b><span>复制修复代码交给开发，或者复制 Markdown 格式的报告发给团队。</span></li>
     </ol>
     <div class="btn-row" style="margin-top:22px">
       <span data-when="live" hidden><span class="btn-row" data-store-group><a class="btn" data-store="edge" data-campaign="steps">免费安装 Edge 版</a><a class="btn" data-store="chrome" data-campaign="steps">免费安装 Chrome 版</a></span></span>
@@ -344,9 +355,9 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <h2>隐私与可信</h2>
     <div class="cards">
-      <div class="card"><b>点击时才读取当前页</b><p>插件只申请「点击时读取当前网站」的权限，不会在后台读取你浏览的任何页面。</p></div>
-      <div class="card"><b>本地检测，不上传网页</b><p>检测在你的浏览器里完成，网页内容不会上传到我们的服务器。</p></div>
-      <div class="card"><b>统计默认关闭</b><p>匿名使用统计需要你主动同意，可以随时关闭，也从不记录你检测的网址。</p></div>
+      <div class="card"><b>插件：点击时才读取当前页</b><p>只申请「点击时读取当前网站」的权限，不会在后台读取你浏览的任何页面。</p></div>
+      <div class="card"><b>插件：本地检测，不上传网页</b><p>检测在你的浏览器里完成，网页内容不会上传到我们的服务器；匿名统计默认关闭，从不记录你检测的网址。</p></div>
+      <div class="card"><b>在线检测：只发网址，1 小时后删除</b><p>你输入的网址会发到我们的服务器，由服务器读取该网页的公开内容；结果只在内存中保存，1 小时后自动删除，统计不记录网址。</p></div>
       <div class="card"><b>出错就公开更正</b><p>数据报告里的每一处更正都写在页面上。觉得结论不对？<a href="feedback.html">告诉我们</a>。</p></div>
     </div>
   </div>
@@ -356,7 +367,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <h2>常见问题</h2>
     <details><summary>Citable 收费吗？</summary><p>免费，不用注册。在线检测和浏览器插件都不收费。</p></details>
-    <details><summary>会把我的网页内容上传吗？</summary><p>插件在你的浏览器本地检测，网页内容不会上传到我们的服务器。首页的在线检测需要把你输入的网址发到我们的服务器，由服务器读取该网页的公开内容，结果只在内存中缓存最多 1 小时，不写入磁盘，也不和任何身份关联。</p></details>
+    <details><summary>会把我的网页内容上传吗？</summary><p>插件在你的浏览器本地检测，网页内容不会上传到我们的服务器。首页的在线检测需要把你输入的网址发到我们的服务器，由服务器读取该网页的公开内容，检测结果只保存在服务器内存中，1 小时后自动删除（服务重启也会清空），不写入磁盘，也不和任何身份关联。</p></details>
     <details><summary>检测结论准确吗？</summary><p>每条结论都标注依据：来自平台官方文档、公开研究还是行业经验。依据不足时（例如 DeepSeek、Grok 没有公开爬虫）直接写「无法确认」，不编结论。觉得结论不对，可以在插件里点「不准确」或通过<a href="feedback.html">反馈页</a>告诉我们。</p></details>
     <details><summary>和传统 SEO 工具有什么不同？</summary><p>SEO 工具关心的是在搜索结果里排第几。Citable 关心的是 AI 搜索能不能读到、能不能引用你的页面：逐个 AI 平台判断爬虫能否进入、不执行 JavaScript 时能否看到正文、AI 能否认出你是谁，并给出可以直接复制的修复代码。</p></details>
     <details><summary>在线检测和插件有什么区别？</summary><p>在线检测是快速版：只读取服务器返回的 HTML，几秒出结果，适合先看个大概。插件能对比浏览器渲染后的页面（发现靠 JavaScript 渲染、AI 爬虫看不到的正文），给出修复代码和完整报告，也能检测需要登录或内网的页面。</p></details>

@@ -43,6 +43,8 @@ a{color:var(--accent)}
 // 由 scripts/release.sh 生成 site-dist 时自动填入（与插件相同的统计地址和公开写入 Key）。
 const TELEMETRY = { host: "https://citable.mrrpeek.com/ingest", key: "phc_xS4c9noxNTXvZsGECU4eMDQifAWvTw5CFMoAGeHmnicm" };
 const q = new URLSearchParams(location.search);
+// 从在线检测结果点「告诉我们」过来时，预填刚才检测的网址（只在用户提交表单时才发送）
+if (q.get("url")) { const u = document.querySelector('[name="url"]'); if (u && !u.value) u.value = q.get("url").slice(0, 300); }
 document.getElementById("f").addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
@@ -52,6 +54,7 @@ document.getElementById("f").addEventListener("submit", async (e) => {
     page_url: String(data.get("url") || "").slice(0, 300),
     contact: String(data.get("contact") || "").slice(0, 100),
     version: q.get("v"),
+    from: q.get("from") || "",
     $process_person_profile: false,
   };
   const btn = e.target.querySelector("button");

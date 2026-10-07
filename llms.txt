@@ -1,0 +1,9 @@
+# Citable
+
+> 检测网页能否被国内外 14 个 AI 搜索平台（豆包、Kimi、DeepSeek、腾讯元宝、通义、百度 AI 搜索、纳米 AI 搜索、ChatGPT 搜索、Claude、Perplexity、Google AI 搜索、Microsoft Copilot、Meta AI、Grok）抓取和引用，逐个平台给出结论和原因，并生成可以直接复制的修复代码。提供免费的在线检测和 Chrome / Edge 浏览器插件。
+
+- [产品首页与在线检测](https://citable.mrrpeek.com/)：输入网址即可快速检测；插件可以对比浏览器渲染后的页面，并给出修复代码
+- [100 个中文网站 AI 搜索可见性实测（2026 年 10 月）](https://citable.mrrpeek.com/report-2026-10.html)：方法、各项比例与逐站数据
+- [逐站数据 CSV](https://citable.mrrpeek.com/data/report-2026-10.csv)
+- [隐私政策](https://citable.mrrpeek.com/privacy.html)
+- [反馈](https://citable.mrrpeek.com/feedback.html)
