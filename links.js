@@ -7,7 +7,7 @@ window.CITABLE_LINKS = {
 
 // 页面访问统计：与插件相同的统计服务（PostHog，已开启丢弃 IP），由 release.sh / launch-links.sh 生成 site-dist 时填入。
 // 只记录「哪个页面、从哪个渠道来（utm_*、来源域名）、点了哪个安装按钮」；不用 cookie、不写本地存储、不建用户档案。
-const CITABLE_TELEMETRY = { host: "https://us.i.posthog.com", key: "phc_xS4c9noxNTXvZsGECU4eMDQifAWvTw5CFMoAGeHmnicm" };
+const CITABLE_TELEMETRY = { host: "https://citable.mrrpeek.com/ingest", key: "phc_xS4c9noxNTXvZsGECU4eMDQifAWvTw5CFMoAGeHmnicm" };
 
 (() => {
   const q = new URLSearchParams(location.search);

@@ -1,0 +1,5 @@
+# 欢迎所有搜索引擎和 AI 搜索爬虫（这份报告就是讲这件事的）
+User-agent: *
+Allow: /
+
+Sitemap: https://citable.mrrpeek.com/sitemap.xml
