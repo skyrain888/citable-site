@@ -92,7 +92,7 @@
     const cta = el("div", "res-cta");
     const p = el("p");
     if (live()) p.append(el("b", null, "用插件在你自己的浏览器里检测，不受这个限制。"));
-    else p.append(el("b", null, "插件上线后，可以在你自己的浏览器里检测，不受这个限制。"), document.createTextNode("插件正在商店审核中。"));
+    else p.append(el("b", null, "插件上线后，可以在你自己的浏览器里检测，不受这个限制。"));
     cta.append(p);
     const actions = installActions("online_check_unscored");
     if (actions) cta.append(actions);
