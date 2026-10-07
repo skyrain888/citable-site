@@ -121,9 +121,9 @@ h1{font-size:clamp(30px,5.2vw,50px);line-height:1.18;letter-spacing:-.01em;margi
 .note{font-size:13px;color:var(--muted)}
 .res-group{margin-top:14px}
 .res-group h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:600}
-.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:6px}
-.chip{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:var(--surface)}
-.chip-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.chip{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 8px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:var(--surface)}
+.chip-name{min-width:0;line-height:1.35}
 .chip-st{flex:none;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px}
 .chip.ok .chip-st{color:var(--ok);background:var(--ok-bg)}.chip.warn .chip-st{color:var(--warn);background:var(--warn-bg)}.chip.bad .chip-st{color:var(--bad);background:var(--bad-bg)}.chip.muted .chip-st{color:var(--na);background:var(--na-bg)}
 .why{margin-top:10px;font-size:14px}
