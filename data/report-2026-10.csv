@@ -57,7 +57,7 @@
 首页,电商品牌,https://www.gree.com/,https://www.gree.com/,是,83,B,,,,pass,pass,pass,warn,pass,pass,warn,warn,warn,fail,warn,warn,info
 首页,电商品牌,https://www.byd.com/cn,https://www.byd.com/cn,是,85,B,,,,pass,pass,pass,fail,pass,pass,pass,warn,warn,fail,warn,warn,info
 首页,电商品牌,https://www.nio.cn/,https://www.nio.cn/,是,91,A,,,,pass,pass,pass,fail,pass,pass,pass,pass,warn,pass,warn,warn,pass
-首页,电商品牌,https://www.xiaopeng.com/,https://www.xiaopeng.com/,是,80,B,,,,pass,skip,pass,fail,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.xiaopeng.com/,https://www.xiaopeng.com/,是,84,B,,,,pass,pass,pass,fail,pass,pass,warn,pass,warn,fail,warn,warn,warn
 首页,电商品牌,https://www.lixiang.com/,https://www.lixiang.com/,是,85,B,,,,pass,pass,info,fail,pass,pass,warn,pass,pass,fail,warn,pass,info
 首页,科技大厂与AI,https://www.baidu.com/,https://www.baidu.com/,是,68,C,ChatGPT 搜索、Claude、Perplexity、Meta AI、Kimi,robots.txt,,fail,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
 首页,科技大厂与AI,https://www.alibabacloud.com/zh,https://www.alibabacloud.com/en?_p_lc=5,是,85,B,,,,pass,pass,pass,fail,warn,pass,pass,pass,warn,fail,warn,pass,info

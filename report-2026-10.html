@@ -122,9 +122,9 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 <h2>发现一：访问层几乎没问题</h2>
 <ul class="bars" aria-label="首页访问层检查通过率">
 <li title="88 / 93"><span>robots.txt 放行 AI 搜索爬虫</span><span class="track"><span class="fill" style="width:95%"></span></span><span class="v">95%</span></li>
-<li title="88 / 92"><span>以爬虫身份请求正常返回</span><span class="track"><span class="fill" style="width:96%"></span></span><span class="v">96%</span></li>
+<li title="89 / 93"><span>以爬虫身份请求正常返回</span><span class="track"><span class="fill" style="width:96%"></span></span><span class="v">96%</span></li>
 </ul>
-<p class="caption">首页，n = 93（「以爬虫身份请求」n = 92，有 1 个站点的探测请求全部出错）。「AI 搜索爬虫」指 OAI-SearchBot、Claude-SearchBot、PerplexityBot、Googlebot、Bingbot 等 12 个用于搜索和实时抓取的爬虫。</p>
+<p class="caption">首页，n = 93。「AI 搜索爬虫」指 OAI-SearchBot、Claude-SearchBot、PerplexityBot、Googlebot、Bingbot 等 12 个用于搜索和实时抓取的爬虫。</p>
 <p>这和不少人的直觉相反：多数中文网站并没有屏蔽 AI 爬虫。真正屏蔽的是少数内容平台，而且大多是有意为之，后面单独介绍。</p>
 <p>另有 7 个首页我们无法检测：2 个拒绝了检测请求（HTTP 403），1 个返回 HTTP 412；还有 4 家央国企官网无法和我们的检测服务器（Node.js，OpenSSL 3 默认配置）建立连接：一家服务器使用了 OpenSSL 3 默认禁用的旧式 TLS 重协商（用 macOS 自带的 curl 可以打开），一家的证书和域名不匹配，两家直接断开连接。我们无法确认真实的 AI 爬虫会不会同样连不上，但这类问题值得运维团队自查。</p>
 
@@ -137,7 +137,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 <ul class="bars" aria-label="首页可读性检查通过率">
 <li title="59 / 93"><span>标题和描述齐全</span><span class="track"><span class="fill" style="width:63%"></span></span><span class="v">63%</span></li>
 <li title="57 / 93"><span>声明了页面语言</span><span class="track"><span class="fill" style="width:61%"></span></span><span class="v">61%</span></li>
-<li title="49 / 93"><span>有 sitemap</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="v">53%</span></li>
+<li title="50 / 93"><span>有 sitemap</span><span class="track"><span class="fill" style="width:54%"></span></span><span class="v">54%</span></li>
 <li title="36 / 93"><span>链接到关于我们 / 联系方式</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="v">39%</span></li>
 <li title="36 / 93"><span>声明了 canonical</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="v">39%</span></li>
 <li title="22 / 93"><span>Open Graph 信息齐全</span><span class="track"><span class="fill" style="width:24%"></span></span><span class="v">24%</span></li>
@@ -178,7 +178,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 <thead><tr><th>类别</th><th class="n">可检测首页</th><th class="n">平均分</th></tr></thead>
 <tbody>
 <tr><td>SaaS 软件</td><td class="n">20</td><td class="n">86.7</td></tr>
-<tr><td>电商与消费品牌</td><td class="n">20</td><td class="n">83.3</td></tr>
+<tr><td>电商与消费品牌</td><td class="n">20</td><td class="n">83.5</td></tr>
 <tr><td>科技公司与大模型厂商</td><td class="n">19</td><td class="n">83.3</td></tr>
 <tr><td>媒体资讯</td><td class="n">19</td><td class="n">82.6</td></tr>
 <tr><td>政府、高校与央国企</td><td class="n">15</td><td class="n">77.9</td></tr>
@@ -214,7 +214,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 <a class="btn" data-store="edge" data-campaign="report_2026_10" data-pending-text="Edge 版审核中，即将上线">安装 Edge 版</a>
 <a class="btn secondary" data-store="chrome" data-campaign="report_2026_10" data-pending-text="Chrome 版审核中，即将上线">安装 Chrome 版</a>
 </div>
-<p data-notify hidden class="note" style="margin:12px 0 0">想在上线当天收到通知？<a href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">写一封主题为「上线提醒」的邮件给我们</a>，上线后回复你一次，不做其他用途。</p>
+<p data-notify hidden class="note" style="margin:12px 0 0">想在上线当天收到通知？<a href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">写一封主题为「上线提醒」的邮件给我们</a>（wuyuwentian@gmail.com，在微信里打开可以复制地址），上线后回复你一次，不做其他用途。</p>
 <p class="note" style="margin:10px 0 0">国内网络通常可以直接打开 Edge 加载项商店。</p>
 </div>
 
