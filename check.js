@@ -142,7 +142,8 @@
       g.append(el("h2", "res-h", title));
       const grid = el("ul", "chips");
       for (const p of ps) {
-        const s = STATUS[p.status] || STATUS.unknown;
+        // 页面本身拿不到（404 / 5xx 等）时，「被挡住」容易被理解成 robots 或防火墙，改叫「拿不到页面」
+        const s = kind && p.status === "blocked" ? { label: "拿不到页面", cls: "bad", icon: "✕" } : STATUS[p.status] || STATUS.unknown;
         const li = el("li", "chip " + s.cls);
         li.title = cleanReason(p.reason);
         li.append(el("span", "chip-name", p.name), el("span", "chip-st", `${s.icon} ${s.label}`));

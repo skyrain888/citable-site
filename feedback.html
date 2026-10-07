@@ -44,7 +44,7 @@ a{color:var(--accent)}
 const TELEMETRY = { host: "https://citable.mrrpeek.com/ingest", key: "phc_xS4c9noxNTXvZsGECU4eMDQifAWvTw5CFMoAGeHmnicm" };
 const q = new URLSearchParams(location.search);
 // 从在线检测结果点「告诉我们」过来时，预填刚才检测的网址（只在用户提交表单时才发送）
-if (q.get("url")) { const u = document.querySelector('[name="url"]'); if (u && !u.value) { u.value = q.get("url").slice(0, 300); const t = document.createElement("small"); t.textContent = "已预填刚才检测的网址，只有点提交才会发送，不需要可以删除。"; t.style.cssText = "display:block;color:#5d6573;margin-top:4px"; u.after(t); } }
+if (q.get("url")) { const u = document.querySelector('[name="url"]'); if (u && !u.value) { u.value = q.get("url").slice(0, 300); const t = document.createElement("small"); t.textContent = "已预填刚才检测的网址，只有点提交才会发送，不需要可以删除。"; t.style.cssText = "display:block;color:var(--muted);margin-top:4px"; u.after(t); } }
 document.getElementById("f").addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
