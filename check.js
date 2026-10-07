@@ -134,18 +134,24 @@
       g.append(grid);
       box.append(g);
     }
+    // 有问题的平台默认展开原因；其余平台的判断依据收在另一个折叠里，手机上也能看到
     const problems = r.platforms.filter((p) => p.status === "blocked" || p.status === "limited");
-    const d = el("details", "why");
-    d.open = problems.length > 0;
-    d.append(el("summary", null, problems.length ? `为什么有 ${problems.length} 个平台被挡住或受限` : "查看每个平台的判断依据"));
-    const ul = el("ul");
-    for (const p of [...problems, ...r.platforms.filter((x) => !problems.includes(x))]) {
-      const li = el("li");
-      li.append(el("b", null, p.name + "："), document.createTextNode(cleanReason(p.reason)));
-      ul.append(li);
-    }
-    d.append(ul);
-    box.append(d);
+    const reasons = (title, list, open) => {
+      if (!list.length) return;
+      const d = el("details", "why");
+      d.open = open;
+      d.append(el("summary", null, title));
+      const ul = el("ul");
+      for (const p of list) {
+        const li = el("li");
+        li.append(el("b", null, p.name + "："), document.createTextNode(cleanReason(p.reason)));
+        ul.append(li);
+      }
+      d.append(ul);
+      box.append(d);
+    };
+    reasons(`为什么有 ${problems.length} 个平台被挡住或受限`, problems, true);
+    reasons(problems.length ? "其余平台的判断依据" : "查看每个平台的判断依据", r.platforms.filter((x) => !problems.includes(x)), false);
 
     const checks = new Map(r.checks.map((c) => [c.id, c]));
     const top = (r.topIssues || []).map((id) => checks.get(id)).filter(Boolean).slice(0, 3);
