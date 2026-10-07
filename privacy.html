@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citable 隐私政策</title>
+<style>
+:root{--bg:#f5f6f8;--fg:#141821;--muted:#5d6573;--line:#e2e5ea;--accent:#2443c9;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2b303a;--accent:#7d95ff;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding-inline:16px}
+main{max-width:720px;margin:0 auto;padding-block:40px 64px}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--fg)}.muted{color:var(--muted)}a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+</style>
+</head>
+<body><main>
+<h1>Citable 隐私政策</h1>
+<p class="muted">适用于 Citable 浏览器插件（Chrome / Edge）· 生效日期：2026-10-06 · 版本 1.0</p>
+
+<h2>一句话说明</h2>
+<p>检测在你的浏览器本地完成。我们<b>不收集</b>你检测的网址、域名、页面内容、API Key 或任何能识别你身份的信息。只有在你主动同意后，才会发送匿名的功能使用统计，并且可以随时关闭。</p>
+
+<h2>插件在本地处理的数据</h2>
+<ul>
+<li><b>当前网页的内容与 robots.txt / llms.txt / sitemap.xml：</b>仅在你点击插件时读取当前标签页，用于在本地计算检测结果，不会上传。</li>
+<li><b>最近一次检测结果：</b>保存在浏览器会话存储中，用于「完整报告」页面，关闭浏览器后自动清除。</li>
+<li><b>你的设置：</b>包括你选择的 AI 服务商、接口地址、API Key 和模型，只保存在本机（chrome.storage.local），不会同步，也不会发给我们。</li>
+</ul>
+
+<h2>可选功能：AI 改写建议</h2>
+<p>如果你配置了自己的 AI 服务商并点击「AI 改写建议」，插件会把检测结果和当前页面的正文（最多约 12,000 字符）<b>直接从你的浏览器发送到你选择的服务商</b>（例如 Anthropic、OpenAI、DeepSeek，或你自建的服务）。这部分数据由该服务商按其隐私政策处理，不经过我们的服务器。</p>
+
+<h2>匿名使用统计（需要你主动同意）</h2>
+<p>安装后，欢迎页会询问你是否允许发送匿名使用统计。默认<b>不发送</b>；同意后才开始，随时可以在插件「设置 → 隐私」中关闭，关闭后立即停止并清空未发送的数据。</p>
+<table>
+<tr><th>会发送</th><th>不会发送</th></tr>
+<tr><td>
+<ul>
+<li>功能使用事件：打开插件、完成检测、复制修复代码、展开某项检查、修改页面类型、打开完整报告、对结论的「准确 / 不准确」反馈、AI 改写是否成功</li>
+<li>检测结果的概要：分数与等级、页面类型、被挡住 / 受限的平台数量、未通过的检查项编号</li>
+<li>环境信息：插件版本、浏览器（Chrome / Edge）、操作系统类型、界面语言、安装天数</li>
+<li>随机生成的匿名安装 ID（与账号无关）</li>
+</ul>
+</td><td>
+<ul>
+<li>你检测的网址、域名、页面标题、页面内容</li>
+<li>你的浏览记录、按键、鼠标轨迹、剪贴板内容</li>
+<li>API Key、账号、邮箱等身份信息</li>
+<li>精确地理位置</li>
+</ul>
+</td></tr>
+</table>
+<p>如果你在安装后没有在欢迎页做选择，插件会在第一次检测结果的底部再询问一次，同样默认不发送。</p>
+<p><b>用途：</b>仅用于了解功能是否有用、发现误判、决定后续开发什么（产品改进与产品分析）。<b>不会</b>出售数据，不会用于广告或用户画像，不会转给数据经纪商。</p>
+<p><b>IP 地址：</b>统计请求发送到产品分析服务时，网络连接本身不可避免会带有你的 IP 地址；该服务已设置为<b>丢弃客户端 IP</b>，因此不会存储 IP，也不会据此推算位置。</p>
+<p><b>处理方：</b>统计数据由我们使用的产品分析服务（PostHog）代为存储和处理。数据保留不超过 12 个月。</p>
+
+<h2>卸载问卷</h2>
+<p>卸载插件后，浏览器会打开一个可选的问卷页面，地址中只包含插件版本号和安装天数。是否填写由你决定。提交后，你选择的原因和填写的文字会以匿名方式发送到上述产品分析服务（同样不记录 IP），用于改进产品。请不要在文字中填写个人信息。</p>
+
+<h2>反馈页面</h2>
+<p>当你在插件中点「告诉我们哪里不准」时，会打开一个反馈页面。你填写的反馈类型和文字会以匿名方式发送到上述产品分析服务（同样不记录 IP）。只有当你在页面上主动填写网址或联系方式时，我们才会收到这些信息；这些都是可选的。</p>
+
+<h2>本网站的访问统计</h2>
+<p>本网站（产品介绍页与数据报告页）会以匿名方式记录页面访问和安装按钮点击，内容只有：访问的是哪个页面、来源网站的域名、链接中的渠道参数（utm_source 等），以及点击了哪个商店的安装按钮。不使用 cookie，不在浏览器中保存任何标识，不建立用户档案；数据发送到上述产品分析服务（同样不记录 IP）。</p>
+
+<h2>Chrome Web Store 用户数据政策</h2>
+<p>The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+
+<h2>联系我们</h2>
+<p>如对隐私有任何疑问或要求删除数据，请联系：<b>wuyuwentian@gmail.com</b>。由于统计数据是匿名的，删除请求需要你提供插件「设置」中显示的匿名 ID。</p>
+</main></body></html>

@@ -1,0 +1,133 @@
+﻿样本,分类,网址,最终地址,可检测,分数,等级,被挡住的平台,被挡依据,受限的平台,access.ai-search-bots,access.bot-probe,rendering.raw-content,content.h1,discovery.title-description,rendering.lang,discovery.canonical,discovery.sitemap,discovery.open-graph,structured.jsonld,structured.organization,authority.about-contact,discovery.llms-txt
+首页,媒体资讯,https://www.36kr.com/,https://www.36kr.com/,是,71,C,,,,pass,pass,info,fail,fail,pass,warn,pass,warn,fail,warn,warn,info
+首页,媒体资讯,https://www.huxiu.com/,https://www.huxiu.com/,是,82,B,,,,pass,pass,pass,fail,warn,warn,pass,pass,warn,fail,warn,warn,info
+首页,媒体资讯,https://sspai.com/,https://sspai.com/,是,81,B,,,,pass,pass,info,fail,pass,pass,warn,warn,warn,fail,warn,pass,info
+首页,媒体资讯,https://www.ifanr.com/,https://www.ifanr.com/,是,88,B,,,,pass,pass,pass,warn,pass,pass,warn,pass,pass,fail,warn,warn,info
+首页,媒体资讯,https://www.geekpark.net/,https://www.geekpark.net/,否,,,,,,pass,info,skip,skip,skip,skip,skip,pass,skip,skip,skip,skip,info
+首页,媒体资讯,https://www.leiphone.com/,https://www.leiphone.com/,是,86,B,,,,pass,pass,pass,fail,pass,warn,pass,pass,warn,fail,warn,pass,info
+首页,媒体资讯,（已匿名 1）,（已匿名 1）,是,72,C,ChatGPT 搜索、Claude、Perplexity,爬虫身份请求,,warn,fail,pass,pass,warn,pass,warn,pass,warn,fail,warn,warn,info
+首页,媒体资讯,https://www.qbitai.com/,https://www.qbitai.com/,是,84,B,,,,pass,pass,pass,fail,warn,pass,warn,pass,pass,fail,warn,warn,info
+首页,媒体资讯,https://www.thepaper.cn/,https://www.thepaper.cn/,是,84,B,,,,pass,pass,pass,fail,pass,warn,warn,pass,warn,fail,warn,warn,info
+首页,媒体资讯,https://www.jiemian.com/,https://www.jiemian.com/,是,83,B,,,,pass,pass,pass,fail,pass,pass,warn,warn,warn,fail,warn,pass,info
+首页,媒体资讯,https://www.caixin.com/,https://www.caixin.com/,是,82,B,,,,pass,pass,pass,fail,warn,warn,warn,warn,pass,fail,warn,pass,info
+首页,媒体资讯,https://www.yicai.com/,https://www.yicai.com/,是,80,B,,,,pass,pass,pass,fail,pass,warn,warn,warn,warn,fail,warn,warn,info
+首页,媒体资讯,https://www.infoq.cn/,https://www.infoq.cn/,是,88,B,,,,pass,pass,pass,fail,pass,warn,pass,pass,pass,fail,warn,pass,info
+首页,媒体资讯,https://www.oschina.net/,https://www.oschina.net/,是,82,B,,,,pass,pass,info,fail,pass,pass,warn,pass,pass,fail,warn,warn,info
+首页,媒体资讯,https://www.cnbeta.com.tw/,https://www.cnbeta.com.tw/,是,86,B,,,,pass,pass,pass,pass,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,媒体资讯,https://www.ithome.com/,https://www.ithome.com/,是,84,B,,,,pass,pass,pass,fail,warn,pass,pass,warn,warn,fail,warn,pass,info
+首页,媒体资讯,https://www.pingwest.com/,https://www.pingwest.com/,是,83,B,,,,pass,pass,pass,fail,pass,warn,warn,warn,pass,fail,warn,pass,info
+首页,媒体资讯,https://www.tmtpost.com/,https://www.tmtpost.com/,是,86,B,,,,pass,pass,pass,fail,pass,warn,warn,pass,pass,fail,warn,pass,info
+首页,媒体资讯,https://www.woshipm.com/,https://www.woshipm.com/,是,85,B,,,,pass,pass,pass,fail,pass,pass,pass,pass,warn,fail,warn,warn,info
+首页,媒体资讯,https://www.guokr.com/,https://www.guokr.com/,是,82,B,,,,pass,pass,pass,fail,warn,pass,warn,warn,warn,fail,warn,pass,info
+首页,SaaS软件,https://www.feishu.cn/,https://www.feishu.cn/,是,81,B,,,,pass,pass,info,fail,pass,pass,warn,pass,warn,fail,warn,warn,info
+首页,SaaS软件,https://www.dingtalk.com/,https://www.dingtalk.com/,是,83,B,,,,pass,pass,pass,fail,pass,warn,warn,pass,pass,fail,warn,warn,info
+首页,SaaS软件,https://work.weixin.qq.com/,https://work.weixin.qq.com/,是,83,B,,,,pass,pass,pass,pass,warn,pass,warn,warn,warn,fail,warn,warn,info
+首页,SaaS软件,（已匿名 2）,（已匿名 2）,是,50,D,,,ChatGPT 搜索、Claude、Perplexity、Microsoft Copilot、Meta AI、Kimi、腾讯元宝、纳米 AI 搜索（360）、豆包、通义 / 夸克,pass,info,fail,fail,fail,warn,warn,warn,warn,fail,warn,warn,info
+首页,SaaS软件,https://www.yuque.com/,https://www.yuque.com/,是,78,B,,,,pass,pass,info,fail,pass,warn,warn,warn,pass,fail,warn,warn,info
+首页,SaaS软件,（已匿名 3）,（已匿名 3）,是,92,A,,,,warn,pass,pass,pass,pass,pass,pass,pass,pass,fail,warn,pass,info
+首页,SaaS软件,https://www.mingdao.com/,https://www.mingdao.com/,是,97,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,warn,pass,pass
+首页,SaaS软件,https://www.jiandaoyun.com/,https://www.jiandaoyun.com/,是,98,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,warn,pass,info
+首页,SaaS软件,https://www.tower.im/,https://tower.im/,是,86,B,,,,pass,pass,pass,fail,pass,warn,warn,pass,pass,fail,warn,pass,info
+首页,SaaS软件,https://www.teambition.com/,https://www.teambition.com/,是,84,B,,,,pass,pass,pass,fail,pass,warn,warn,pass,warn,fail,warn,warn,info
+首页,SaaS软件,https://www.mastergo.com/,https://mastergo.com/,是,86,B,,,,pass,pass,pass,warn,pass,warn,warn,pass,warn,fail,warn,pass,info
+首页,SaaS软件,https://js.design/,https://js.design/,是,80,B,,,,pass,pass,info,fail,pass,pass,warn,pass,warn,fail,warn,warn,info
+首页,SaaS软件,https://www.processon.com/,https://www.processon.com/,是,97,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,warn,pass,pass,warn,warn
+首页,SaaS软件,https://www.wjx.cn/,https://www.wjx.cn/,是,89,B,,,,pass,pass,pass,pass,pass,warn,pass,warn,pass,fail,warn,pass,info
+首页,SaaS软件,https://www.esign.cn/,https://www.esign.cn/,是,91,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,warn,fail,warn,pass,info
+首页,SaaS软件,https://www.fxiaoke.com/,https://www.fxiaoke.com/,是,95,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,warn,pass,info
+首页,SaaS软件,https://www.xiaoshouyi.com/,https://www.xiaoshouyi.com/,是,92,A,,,,pass,pass,pass,fail,pass,pass,pass,pass,pass,pass,warn,pass,info
+首页,SaaS软件,https://www.udesk.cn/,https://www.udesk.cn/,是,88,B,,,,pass,pass,pass,warn,pass,warn,pass,pass,warn,fail,warn,pass,info
+首页,SaaS软件,https://www.sensorsdata.cn/,https://www.sensorsdata.cn/,是,87,B,,,,pass,pass,pass,pass,pass,pass,warn,pass,warn,fail,warn,warn,info
+首页,SaaS软件,https://www.growingio.com/,https://www.growingio.com/,是,96,A,,,,pass,pass,pass,pass,warn,pass,pass,pass,warn,pass,warn,pass,info
+首页,电商品牌,https://www.jd.com/,https://www.jd.com/,是,86,B,,,,pass,pass,pass,pass,pass,warn,warn,warn,warn,fail,warn,pass,info
+首页,电商品牌,https://www.taobao.com/,https://www.taobao.com/,是,79,B,,,,pass,pass,pass,fail,warn,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.tmall.com/,https://www.tmall.com/,是,81,B,,,,pass,pass,pass,fail,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.pinduoduo.com/,https://www.pinduoduo.com/,是,83,B,,,,pass,pass,pass,fail,pass,pass,pass,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.vip.com/,https://www.vip.com/,是,74,C,,,,pass,pass,info,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.suning.com/,https://www.suning.com/,是,83,B,,,,pass,pass,pass,fail,pass,pass,pass,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.dangdang.com/,https://www.dangdang.com/,是,81,B,,,,pass,pass,pass,fail,warn,warn,pass,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.mi.com/,https://www.mi.com/,是,85,B,,,,pass,pass,info,fail,pass,pass,warn,pass,warn,pass,warn,warn,info
+首页,电商品牌,https://www.vmall.com/,https://www.vmall.com/,是,76,B,,,,pass,pass,info,fail,warn,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.oppo.com/cn/,https://www.oppo.com/cn/,是,91,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,warn,fail,warn,pass,warn
+首页,电商品牌,https://www.vivo.com.cn/,https://www.vivo.com.cn/,是,85,B,,,,pass,pass,pass,fail,pass,pass,pass,pass,warn,fail,warn,warn,info
+首页,电商品牌,https://www.anta.com/,https://www.anta.com/,是,82,B,,,,pass,pass,pass,fail,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.lining.com/,https://www.lining.com/,是,81,B,,,,pass,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,pass,info
+首页,电商品牌,（已匿名 4）,（已匿名 4）,是,82,B,,,,pass,pass,pass,fail,warn,pass,pass,pass,warn,fail,warn,warn,info
+首页,电商品牌,https://www.haier.com/,https://www.haier.com/,是,93,A,,,,pass,pass,pass,warn,pass,pass,pass,pass,warn,pass,warn,pass,warn
+首页,电商品牌,https://www.gree.com/,https://www.gree.com/,是,83,B,,,,pass,pass,pass,warn,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.byd.com/cn,https://www.byd.com/cn,是,85,B,,,,pass,pass,pass,fail,pass,pass,pass,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.nio.cn/,https://www.nio.cn/,是,91,A,,,,pass,pass,pass,fail,pass,pass,pass,pass,warn,pass,warn,warn,pass
+首页,电商品牌,https://www.xiaopeng.com/,https://www.xiaopeng.com/,是,80,B,,,,pass,skip,pass,fail,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,电商品牌,https://www.lixiang.com/,https://www.lixiang.com/,是,85,B,,,,pass,pass,info,fail,pass,pass,warn,pass,pass,fail,warn,pass,info
+首页,科技大厂与AI,https://www.baidu.com/,https://www.baidu.com/,是,68,C,ChatGPT 搜索、Claude、Perplexity、Meta AI、Kimi,robots.txt,,fail,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.alibabacloud.com/zh,https://www.alibabacloud.com/en?_p_lc=5,是,85,B,,,,pass,pass,pass,fail,warn,pass,pass,pass,warn,fail,warn,pass,info
+首页,科技大厂与AI,https://cloud.tencent.com/,https://cloud.tencent.com/,是,85,B,,,,warn,pass,info,fail,pass,pass,pass,pass,pass,fail,warn,warn,pass
+首页,科技大厂与AI,https://www.huaweicloud.com/,https://www.huaweicloud.com/,是,88,B,,,,pass,pass,pass,fail,pass,pass,pass,pass,warn,fail,warn,pass,info
+首页,科技大厂与AI,https://www.volcengine.com/,https://www.volcengine.com/,是,86,B,,,,pass,pass,pass,pass,pass,pass,pass,warn,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.deepseek.com/,https://www.deepseek.com/,是,91,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,fail,warn,warn,info
+首页,科技大厂与AI,https://www.moonshot.cn/,https://www.moonshot.cn/,是,86,B,,,,pass,pass,pass,fail,pass,pass,pass,warn,warn,fail,warn,pass,info
+首页,科技大厂与AI,https://www.zhipuai.cn/,https://www.zhipuai.cn/zh,是,85,B,,,,pass,pass,pass,warn,pass,pass,warn,pass,warn,fail,warn,warn,info
+首页,科技大厂与AI,（已匿名 5）,（已匿名 5）,是,94,A,,,,pass,pass,pass,fail,warn,pass,pass,pass,pass,pass,pass,warn,info
+首页,科技大厂与AI,https://www.baichuan-ai.com/,https://www.baichuan-ai.com/,是,74,C,,,,pass,info,info,fail,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.stepfun.com/,https://www.stepfun.com/,是,79,B,,,,pass,pass,info,fail,warn,pass,warn,pass,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.iflytek.com/,https://www.iflytek.com/,是,78,B,,,,pass,pass,info,fail,pass,pass,warn,warn,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.sensetime.com/cn,https://www.sensetime.com/cn/,是,98,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,warn,pass,info
+首页,科技大厂与AI,https://www.bytedance.com/zh/,https://www.bytedance.com/zh/,是,84,B,,,,pass,pass,pass,fail,warn,warn,pass,pass,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.tencent.com/zh-cn/,https://www.tencent.com/zh-cn/,是,93,A,,,,pass,pass,pass,pass,warn,pass,pass,pass,warn,pass,warn,pass,info
+首页,科技大厂与AI,（已匿名 6）,（已匿名 6）,是,74,C,,,ChatGPT 搜索、Claude、Perplexity、Microsoft Copilot、Meta AI、Kimi、腾讯元宝、纳米 AI 搜索（360）、豆包、通义 / 夸克,pass,pass,warn,fail,pass,warn,warn,pass,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.meituan.com/,https://www.meituan.com/,是,89,B,,,,pass,pass,pass,pass,pass,pass,pass,warn,pass,fail,warn,warn,info
+首页,科技大厂与AI,https://www.kuaishou.com/,https://www.kuaishou.com/,是,60,C,Claude、Meta AI、Kimi,robots.txt,,fail,pass,info,fail,fail,warn,warn,pass,warn,fail,warn,warn,info
+首页,科技大厂与AI,https://www.bilibili.com/,https://www.bilibili.com/,是,85,B,,,,pass,pass,pass,fail,pass,pass,pass,pass,warn,fail,warn,warn,pass
+首页,科技大厂与AI,https://www.zhihu.com/,https://www.zhihu.com/,否,,,ChatGPT 搜索、Claude、Perplexity、Meta AI、Kimi、腾讯元宝,robots.txt,,fail,info,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+首页,政企高校,（已匿名 7）,（已匿名 7）,是,74,C,ChatGPT 搜索、Perplexity,爬虫身份请求,,pass,fail,pass,fail,warn,warn,warn,pass,warn,fail,warn,pass,info
+首页,政企高校,https://www.miit.gov.cn/,https://www.miit.gov.cn/,是,79,B,,,,pass,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.mof.gov.cn/,https://www.mof.gov.cn/,是,66,C,,,,pass,pass,info,fail,fail,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.stats.gov.cn/,https://www.stats.gov.cn/,是,82,B,,,,pass,pass,pass,fail,warn,pass,warn,warn,warn,fail,warn,pass,info
+首页,政企高校,https://www.most.gov.cn/,https://www.most.gov.cn/,是,66,C,,,,pass,pass,info,fail,fail,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.moe.gov.cn/,http://www.moe.gov.cn/,是,82,B,,,,pass,pass,pass,fail,pass,warn,warn,warn,warn,fail,warn,pass,info
+首页,政企高校,https://www.tsinghua.edu.cn/,https://www.tsinghua.edu.cn/,是,78,B,,,,pass,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.pku.edu.cn/,https://www.pku.edu.cn/,是,79,B,,,,pass,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.zju.edu.cn/,https://www.zju.edu.cn/,是,76,B,,,,pass,pass,info,fail,warn,pass,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.fudan.edu.cn/,https://www.fudan.edu.cn/,是,81,B,,,,pass,pass,pass,fail,pass,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.sjtu.edu.cn/,https://www.sjtu.edu.cn/,是,82,B,,,,pass,pass,pass,warn,warn,pass,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,https://www.ustc.edu.cn/,https://www.ustc.edu.cn/,是,79,B,,,,pass,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,pass,info
+首页,政企高校,https://www.icbc.com.cn/,https://www.icbc.com.cn/,是,83,B,,,,pass,pass,pass,warn,pass,warn,warn,warn,warn,fail,warn,warn,info
+首页,政企高校,（已匿名 8）,（已匿名 8）,否,,,,,,skip,skip,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+首页,政企高校,https://www.cmbchina.com/,https://www.cmbchina.com/,是,89,B,,,,pass,pass,pass,fail,pass,warn,warn,warn,warn,pass,pass,pass,info
+首页,政企高校,（已匿名 9）,（已匿名 9）,否,,,,,,skip,skip,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+首页,政企高校,（已匿名 10）,（已匿名 10）,否,,,,,,skip,skip,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+首页,政企高校,（已匿名 11）,（已匿名 11）,否,,,,,,skip,skip,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+首页,政企高校,（已匿名 12）,（已匿名 12）,否,,,ChatGPT 搜索、Claude、Perplexity、Google AI 搜索、Microsoft Copilot、Meta AI、Kimi、百度 AI 搜索 / 文心、腾讯元宝、纳米 AI 搜索（360）、豆包、通义 / 夸克,页面状态,,pass,info,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+首页,政企高校,https://www.crrcgc.cc/,https://www.crrcgc.cc/crrcgc/,是,73,C,,,,pass,pass,pass,fail,warn,warn,warn,pass,warn,fail,warn,pass,info
+文章页,媒体资讯,https://www.thepaper.cn/newsDetail_forward_34207074,https://www.thepaper.cn/newsDetail_forward_34207074,是,80,B,,,,pass,info,pass,pass,pass,warn,warn,pass,warn,fail,warn,warn,info
+文章页,媒体资讯,https://international.caixin.com/2026-10-07/102490967.html,https://international.caixin.com/2026-10-07/102490967.html,是,78,B,,,,pass,pass,pass,pass,pass,warn,warn,warn,pass,fail,warn,pass,info
+文章页,媒体资讯,https://www.woshipm.com/it/5997158.html,https://www.woshipm.com/it/5997158.html,是,78,B,,,,pass,pass,pass,fail,pass,pass,pass,pass,pass,pass,warn,warn,info
+文章页,媒体资讯,https://lapin.ithome.com/html/digi/1010179.htm,https://lapin.ithome.com/html/digi/1010179.htm,是,74,C,百度 AI 搜索 / 文心,robots.txt,,fail,pass,pass,pass,warn,pass,warn,warn,warn,fail,warn,pass,info
+文章页,媒体资讯,https://www.jiemian.com/article/10417803.html,https://www.jiemian.com/article/10417803.html,是,81,B,,,,pass,pass,pass,warn,pass,pass,warn,warn,warn,fail,warn,pass,info
+文章页,媒体资讯,https://www.qbitai.com/2026/10/501749.html,https://www.qbitai.com/2026/10/501749.html,是,89,B,,,,pass,pass,pass,pass,warn,pass,pass,pass,pass,fail,warn,warn,info
+文章页,科技大厂与AI,https://www.deepseek.com/news/deepseek-v4-1-flash/,https://www.deepseek.com/news/deepseek-v4-1-flash/,是,84,B,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,fail,warn,warn,info
+文章页,媒体资讯,https://www.ifanr.com/1674965,https://www.ifanr.com/1674965,是,88,B,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,warn,pass,info
+文章页,政企高校,http://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html,http://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html,是,77,B,,,,pass,pass,pass,pass,warn,warn,warn,warn,warn,fail,warn,warn,info
+文章页,电商品牌,https://bbs.xiaopeng.com/article/3693816,https://bbs.xiaopeng.com/article/3693816,是,84,B,,,,pass,pass,pass,pass,pass,pass,warn,warn,warn,fail,warn,warn,warn
+文章页,政企高校,（已匿名 13）,（已匿名 13）,是,74,C,ChatGPT 搜索、Perplexity,爬虫身份请求,,pass,fail,pass,pass,pass,warn,warn,pass,warn,fail,warn,pass,info
+文章页,SaaS软件,https://www.xiaoshouyi.com/100949-2,https://www.xiaoshouyi.com/100949-2,是,70,C,,,,pass,pass,pass,fail,pass,pass,warn,pass,pass,fail,warn,pass,info
+文章页,政企高校,https://www.tsinghua.edu.cn/info/1173/128540.htm,https://www.tsinghua.edu.cn/info/1173/128540.htm,是,72,C,,,,pass,pass,pass,fail,warn,warn,warn,warn,warn,fail,warn,warn,info
+文章页,媒体资讯,https://www.leiphone.com/special/391/201901/5c32f0bca9173.html,https://www.leiphone.com/special/391/201901/5c32f0bca9173.html,是,74,C,,,,pass,pass,pass,warn,pass,warn,warn,pass,warn,fail,warn,pass,info
+文章页,科技大厂与AI,（已匿名 14）,（已匿名 14）,是,87,B,,,,pass,pass,pass,fail,pass,warn,warn,pass,warn,fail,warn,pass,info
+文章页,政企高校,https://www.miit.gov.cn/xwfb/szyw/art/2026/art_40d1edaafd30479880c8473ba54e3f88.html,https://www.miit.gov.cn/xwfb/szyw/art/2026/art_40d1edaafd30479880c8473ba54e3f88.html,是,73,C,,,,pass,pass,pass,pass,pass,warn,warn,warn,warn,fail,warn,warn,info
+文章页,媒体资讯,https://www.guokr.com/article/470403,https://www.guokr.com/article/470403,是,78,B,,,,pass,pass,pass,fail,pass,pass,warn,warn,warn,fail,warn,pass,info
+文章页,媒体资讯,https://www.yicai.com/news/103384793.html,https://www.yicai.com/news/103384793.html,是,77,B,,,,pass,info,pass,pass,pass,warn,warn,warn,warn,fail,warn,warn,info
+文章页,SaaS软件,https://www.esign.cn/c/2026-04-01/520697.shtml,https://www.esign.cn/c/2026-04-01/520697.shtml,是,79,B,,,,pass,pass,pass,warn,warn,pass,warn,pass,warn,fail,warn,warn,info
+文章页,政企高校,https://news.pku.edu.cn/info/7921/3219231.htm,https://news.pku.edu.cn/info/7921/3219231.htm,是,76,B,,,,pass,pass,pass,fail,warn,pass,warn,warn,warn,fail,warn,warn,info
+文章页,科技大厂与AI,https://www.meituan.com/news/NN260924207008058,https://www.meituan.com/news/NN260924207008058,是,77,B,,,,pass,pass,pass,fail,pass,pass,pass,warn,pass,fail,warn,warn,info
+文章页,媒体资讯,https://www.pingwest.com/a/318014,https://www.pingwest.com/a/318014,是,71,C,,,,pass,info,pass,fail,pass,warn,warn,warn,pass,fail,warn,warn,info
+文章页,科技大厂与AI,https://www.minimax.cn/blog/minimax-h3,https://www.minimax.cn/blog/minimax-h3,是,91,A,,,,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,warn,info
+文章页,科技大厂与AI,https://zhuanlan.zhihu.com/p/28852607,https://zhuanlan.zhihu.com/p/28852607,否,,,ChatGPT 搜索、Claude、Perplexity、Meta AI、Kimi、腾讯元宝,robots.txt,,fail,info,skip,skip,skip,skip,skip,warn,skip,skip,skip,skip,info
+文章页,政企高校,http://news.fudan.edu.cn/2026/1002/c1247a150556/page.htm,https://news.fudan.edu.cn/2026/1002/c1247a150556/page.htm,是,78,B,,,,pass,pass,pass,pass,pass,warn,warn,warn,warn,fail,warn,warn,info
+文章页,媒体资讯,https://sspai.com/a/zmDjyK,https://sspai.com/post/115308,是,87,B,,,,pass,pass,pass,pass,pass,pass,warn,warn,pass,pass,warn,pass,info
+文章页,政企高校,（已匿名 15）,（已匿名 15）,是,74,C,ChatGPT 搜索、Perplexity,爬虫身份请求,,pass,fail,pass,fail,pass,warn,warn,pass,warn,fail,warn,pass,info
+文章页,政企高校,https://news.sjtu.edu.cn/jdyw/20260408/221279.html,https://news.sjtu.edu.cn/jdyw/20260408/221279.html,是,80,B,,,,pass,pass,pass,fail,warn,pass,warn,warn,warn,fail,warn,warn,info
+文章页,SaaS软件,https://mastergo.com/blog/20,https://mastergo.com/blog/20,是,75,B,,,,pass,pass,pass,warn,warn,warn,warn,pass,warn,fail,warn,pass,info
+文章页,媒体资讯,https://www.infoq.cn/article/vVrSzjhEvkmpevS7wZzU,https://www.infoq.cn/article/vVrSzjhEvkmpevS7wZzU,是,88,B,,,,pass,pass,pass,pass,pass,warn,pass,pass,pass,fail,warn,pass,info
+文章页,媒体资讯,https://www.cnbeta.com.tw/articles/tech/1575398.htm,https://www.cnbeta.com.tw/articles/tech/1575398.htm,是,82,B,,,,pass,pass,pass,pass,warn,pass,warn,warn,pass,fail,warn,warn,info
+文章页,科技大厂与AI,https://www.alibabacloud.com/help/faq-detail/42425.htm,https://www.alibabacloud.com/help/en/legal/latest/alibaba-cloud-international-website-privacy-policy,是,74,C,,,,pass,pass,pass,pass,warn,pass,pass,pass,pass,fail,warn,warn,info

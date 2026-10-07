@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citable 已卸载</title>
+<style>
+:root{--bg:#f5f6f8;--fg:#141821;--muted:#5d6573;--line:#e2e5ea;--accent:#2443c9;--surface:#fff;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2b303a;--accent:#7d95ff;--surface:#1a1d24;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding-inline:16px}
+main{max-width:560px;margin:0 auto;padding-block:48px 64px;display:grid;gap:16px}
+h1{font-size:24px;margin:0}.muted{color:var(--muted)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px}
+label{display:flex;gap:8px;align-items:center}textarea{width:100%;min-height:80px;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);box-sizing:border-box}
+button{font:inherit;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;justify-self:start}
+.done{color:#18794e;font-weight:600}
+</style>
+</head>
+<body><main>
+<h1>Citable 已卸载</h1>
+<p class="muted">可以花 10 秒告诉我们原因吗？这会直接影响下一版做什么。问卷是匿名的。</p>
+<form id="f">
+<label><input type="radio" name="reason" value="not_needed"> 暂时用不上 / 只是试试</label>
+<label><input type="radio" name="reason" value="not_accurate"> 检测结论不准确</label>
+<label><input type="radio" name="reason" value="hard_to_understand"> 看不懂结果或不知道怎么改</label>
+<label><input type="radio" name="reason" value="missing_feature"> 缺少我需要的功能</label>
+<label><input type="radio" name="reason" value="found_alternative"> 找到了更好的工具</label>
+<label><input type="radio" name="reason" value="privacy_or_performance"> 担心隐私或影响浏览器速度</label>
+<label><input type="radio" name="reason" value="other"> 其他</label>
+<textarea name="comment" maxlength="500" placeholder="（可选）具体说说？例如哪个结论不准、缺什么功能"></textarea>
+<button type="submit">提交</button>
+<p class="done" id="done" hidden>谢谢你的反馈！</p>
+</form>
+</main>
+<script>
+// 由 scripts/release.sh 生成 site-dist 时自动填入（与插件相同的统计地址和公开写入 Key）。
+const TELEMETRY = { host: "https://us.i.posthog.com", key: "phc_xS4c9noxNTXvZsGECU4eMDQifAWvTw5CFMoAGeHmnicm" };
+const q = new URLSearchParams(location.search);
+document.getElementById("f").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const reason = data.get("reason") || "unspecified";
+  const comment = String(data.get("comment") || "").slice(0, 500);
+  if (TELEMETRY.host && TELEMETRY.key) {
+    try {
+      await fetch(TELEMETRY.host.replace(/\/+$/, "") + "/batch/", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ api_key: TELEMETRY.key, batch: [{ event: "uninstall_survey_submitted", distinct_id: "uninstall-" + crypto.randomUUID(), properties: { reason, comment, version: q.get("v"), days_since_install: Number(q.get("d")), $process_person_profile: false }, timestamp: new Date().toISOString() }] }),
+      });
+    } catch {}
+  }
+  e.target.querySelectorAll("input,textarea,button").forEach((el) => (el.disabled = true));
+  document.getElementById("done").hidden = false;
+});
+</script>
+</body></html>

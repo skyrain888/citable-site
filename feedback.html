@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citable 反馈</title>
+<style>
+:root{--bg:#f5f6f8;--fg:#141821;--muted:#5d6573;--line:#e2e5ea;--accent:#2443c9;--surface:#fff;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2b303a;--accent:#7d95ff;--surface:#1a1d24;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding-inline:16px}
+main{max-width:560px;margin:0 auto;padding-block:48px 64px;display:grid;gap:16px}
+h1{font-size:24px;margin:0}.muted{color:var(--muted)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px}
+label{display:flex;gap:8px;align-items:center}.field{display:grid;gap:4px}
+textarea,input[type=text]{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);box-sizing:border-box}
+textarea{min-height:100px}
+button{font:inherit;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 16px;cursor:pointer;justify-self:start}
+.done{color:#18794e;font-weight:600}.err{color:#c4320a}
+a{color:var(--accent)}
+</style>
+</head>
+<body><main>
+<h1>告诉我们哪里不对</h1>
+<p class="muted">每条反馈都会被看到，误判会在后续小版本中修正。反馈是匿名的；网址和联系方式都是可选项。</p>
+<form id="f">
+<label><input type="radio" name="kind" value="not_accurate" checked> 检测结论不准确</label>
+<label><input type="radio" name="kind" value="bug"> 插件出错 / 用不了</label>
+<label><input type="radio" name="kind" value="feature"> 功能建议</label>
+<label><input type="radio" name="kind" value="other"> 其他</label>
+<div class="field"><span>具体说说（必填）</span>
+<textarea name="comment" maxlength="1000" required placeholder="例如：某条检查说「没有结构化数据」，但页面其实有 JSON-LD"></textarea></div>
+<div class="field"><span class="muted">相关网址（可选，方便我们复现）</span>
+<input type="text" name="url" maxlength="300" placeholder="https://"></div>
+<div class="field"><span class="muted">联系方式（可选，邮箱或微信，需要回复你时使用）</span>
+<input type="text" name="contact" maxlength="100"></div>
+<button type="submit">提交</button>
+<p class="done" id="done" hidden>谢谢！已收到你的反馈。</p>
+<p class="err" id="err" hidden>提交失败，请稍后再试，或发邮件到隐私政策页中的联系邮箱。</p>
+</form>
+<p class="muted"><a href="privacy.html">隐私政策</a></p>
+</main>
+<script>
+// 由 scripts/release.sh 生成 site-dist 时自动填入（与插件相同的统计地址和公开写入 Key）。
+const TELEMETRY = { host: "https://us.i.posthog.com", key: "phc_xS4c9noxNTXvZsGECU4eMDQifAWvTw5CFMoAGeHmnicm" };
+const q = new URLSearchParams(location.search);
+document.getElementById("f").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const props = {
+    kind: data.get("kind") || "other",
+    comment: String(data.get("comment") || "").slice(0, 1000),
+    page_url: String(data.get("url") || "").slice(0, 300),
+    contact: String(data.get("contact") || "").slice(0, 100),
+    version: q.get("v"),
+    $process_person_profile: false,
+  };
+  const btn = e.target.querySelector("button");
+  btn.disabled = true;
+  try {
+    const res = await fetch(TELEMETRY.host.replace(/\/+$/, "") + "/batch/", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ api_key: TELEMETRY.key, batch: [{ event: "feedback_submitted", distinct_id: "feedback-" + crypto.randomUUID(), properties: props, timestamp: new Date().toISOString() }] }),
+    });
+    if (!res.ok) throw new Error(String(res.status));
+    e.target.querySelectorAll("input,textarea,button").forEach((el) => (el.disabled = true));
+    document.getElementById("err").hidden = true;
+    document.getElementById("done").hidden = false;
+  } catch {
+    btn.disabled = false;
+    document.getElementById("err").hidden = false;
+  }
+});
+</script>
+</body></html>

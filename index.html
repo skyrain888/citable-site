@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citable：检测网页能否被 AI 搜索引用</title>
+<meta name="description" content="免费浏览器插件：打开任意网页点一下，看 14 个国内外 AI 平台能不能引用这个页面、为什么，以及可以直接复制的修复代码。检测在本地完成，不上传网页内容。">
+<link rel="canonical" href="https://skyrain888.github.io/citable-site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Citable：检测网页能否被 AI 搜索引用">
+<meta property="og:description" content="打开网页点一下，看 14 个 AI 平台能不能引用它，以及怎么改。">
+<meta property="og:url" content="https://skyrain888.github.io/citable-site/">
+<meta property="og:image" content="https://skyrain888.github.io/citable-site/img/report-2026-10.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://skyrain888.github.io/citable-site/#org",
+      "name": "Citable",
+      "url": "https://skyrain888.github.io/citable-site/",
+      "logo": "https://skyrain888.github.io/citable-site/img/icon-128.png"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Citable — AI 搜索可引用度检测",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Chrome, Microsoft Edge",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+      "publisher": { "@id": "https://skyrain888.github.io/citable-site/#org" }
+    }
+  ]
+}
+</script>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--fg:#141821;--muted:#5d6573;--line:#e3e6eb;--accent:#2443c9;--track:#e8ebf2;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111318;--card:#181b22;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--track:#262b36;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111318;--card:#181b22;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--track:#262b36;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding-inline:16px}
+main{max-width:720px;margin:0 auto;padding-block:48px 64px}
+a{color:var(--accent)}
+h1{font-size:30px;line-height:1.35;margin:0 0 12px}
+h2{font-size:20px;margin:40px 0 12px}
+.lead{font-size:17px;color:var(--muted);margin:0 0 20px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 8px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.pending{background:var(--track);color:var(--muted);border-color:transparent;cursor:default}
+.note{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card b{display:block;margin-bottom:4px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.report{display:block;text-decoration:none;color:inherit;margin-top:12px}
+.report:hover b{color:var(--accent)}
+footer{color:var(--muted);font-size:13px;margin-top:48px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body><main>
+<h1>你的网页，AI 搜索能不能引用？</h1>
+<p class="lead">Citable 是一个免费的浏览器插件。打开任意网页点一下，就能看到 14 个国内外 AI 平台（其中 12 个可以判断）能不能抓取和引用这个页面、为什么，以及可以直接复制的修复代码。</p>
+<div class="btns">
+<a class="btn" data-store="edge" data-campaign="home" data-pending-text="Edge 版审核中，即将上线">安装 Edge 版</a>
+<a class="btn secondary" data-store="chrome" data-campaign="home" data-pending-text="Chrome 版审核中，即将上线">安装 Chrome 版</a>
+</div>
+<p data-notify hidden class="note" style="margin:12px 0 0">想在上线当天收到通知？<a href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">写一封主题为「上线提醒」的邮件给我们</a>，上线后回复你一次，不做其他用途。</p>
+<p class="note">国内网络通常可以直接打开 Edge 加载项商店。检测在你的浏览器本地完成，网页内容不会上传到我们的服务器；匿名使用统计默认关闭。</p>
+
+<h2>能看到什么</h2>
+<div class="grid">
+<div class="card"><b>逐个平台的结论</b><p>国内 7 个、海外 7 个 AI 平台，逐个给出「可引用 / 受限 / 被挡住 / 无法确认」和原因。</p></div>
+<div class="card"><b>先改这 3 件事</b><p>按影响排序；robots.txt、结构化数据等修复代码自动生成，一键复制。</p></div>
+<div class="card"><b>AI 看不到的内容</b><p>多数 AI 爬虫不执行 JavaScript。对比服务器返回的页面和浏览器里的页面，找出被漏掉的正文。</p></div>
+<div class="card"><b>每条结论都有依据</b><p>标注来自官方文档、研究还是行业经验；拿不准的就写「无法确认」，不编结论。</p></div>
+</div>
+
+<h2>数据报告</h2>
+<a class="card report" href="report-2026-10.html"><b>100 个中文网站 AI 搜索可见性实测（2026 年 10 月）</b><p>95% 的首页没有挡住 AI 搜索爬虫，但只有 14% 有结构化数据，3% 声明了组织实体。</p></a>
+
+<footer>Citable · <a href="feedback.html">反馈与支持</a> · <a href="privacy.html">隐私政策</a></footer>
+</main>
+<script src="links.js"></script>
+</body></html>

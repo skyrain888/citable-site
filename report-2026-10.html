@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>100 个中文网站 AI 搜索可见性实测（2026 年 10 月）｜Citable</title>
+<meta name="description" content="我们用同一套规则检测了 100 个中文网站首页和 32 篇文章页：95% 的首页没有挡住 AI 搜索爬虫，但只有 14% 有结构化数据、3% 声明了组织实体，文章页同时标注发布与更新日期的只有 8%。">
+<link rel="canonical" href="https://skyrain888.github.io/citable-site/report-2026-10.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="100 个中文网站 AI 搜索可见性实测（2026 年 10 月）">
+<meta property="og:description" content="门是开着的，但 AI 读不懂：95% 的首页放行 AI 搜索爬虫，只有 14% 有结构化数据。">
+<meta property="og:url" content="https://skyrain888.github.io/citable-site/report-2026-10.html">
+<meta property="og:image" content="https://skyrain888.github.io/citable-site/img/report-2026-10.png">
+<meta property="og:site_name" content="Citable">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://skyrain888.github.io/citable-site/#org",
+      "name": "Citable",
+      "url": "https://skyrain888.github.io/citable-site/",
+      "logo": "https://skyrain888.github.io/citable-site/img/icon-128.png"
+    },
+    {
+      "@type": "Article",
+      "headline": "100 个中文网站 AI 搜索可见性实测（2026 年 10 月）",
+      "description": "95% 的首页没有挡住 AI 搜索爬虫，但只有 14% 有结构化数据、3% 声明了组织实体；文章页同时标注发布与更新日期的只有 8%。",
+      "datePublished": "2026-10-07",
+      "dateModified": "2026-10-07T13:00:00+08:00",
+      "inLanguage": "zh-CN",
+      "author": { "@type": "Organization", "@id": "https://skyrain888.github.io/citable-site/#org" },
+      "publisher": { "@id": "https://skyrain888.github.io/citable-site/#org" },
+      "image": "https://skyrain888.github.io/citable-site/img/report-2026-10.png",
+      "mainEntityOfPage": "https://skyrain888.github.io/citable-site/report-2026-10.html"
+    }
+  ]
+}
+</script>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--fg:#141821;--muted:#5d6573;--line:#e3e6eb;--accent:#2443c9;--bar:#2443c9;--track:#e8ebf2;--warn:#a5530a;--code:#f0f2f6;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111318;--card:#181b22;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--bar:#7d95ff;--track:#262b36;--warn:#f0a35c;--code:#1f232c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111318;--card:#181b22;--fg:#e7e9ee;--muted:#9aa1ad;--line:#2a2f39;--accent:#8ea2ff;--bar:#7d95ff;--track:#262b36;--warn:#f0a35c;--code:#1f232c;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding-inline:16px}
+main{max-width:760px;margin:0 auto;padding-block:40px 72px}
+a{color:var(--accent)}
+h1{font-size:28px;line-height:1.35;margin:0 0 12px}
+h2{font-size:21px;margin:44px 0 12px;line-height:1.4}
+h3{font-size:17px;margin:28px 0 8px}
+p,li{margin:0 0 12px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:24px}
+.lead{font-size:17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+.tldr li{margin-bottom:8px}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-size:30px;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:13px}
+.bars{list-style:none;padding:0;margin:8px 0 4px}
+.bars li{display:grid;grid-template-columns:minmax(0,11em) 1fr 4.2em;gap:10px;align-items:center;margin:0 0 8px;font-size:14px}
+.bars .track{height:12px;background:var(--track);border-radius:4px;position:relative}
+.bars .fill{position:absolute;inset:0 auto 0 0;background:var(--bar);border-radius:4px}
+.bars .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--fg)}
+.bars li:hover .fill{filter:brightness(1.15)}
+.caption{color:var(--muted);font-size:13px;margin:4px 0 16px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.table-wrap{overflow-x:auto}
+pre{background:var(--code);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:13px;line-height:1.6}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+p code,li code{background:var(--code);padding:1px 5px;border-radius:4px}
+.note{color:var(--muted);font-size:14px}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:40px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{display:inline-block;padding:9px 16px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.pending{background:var(--track);color:var(--muted);border-color:transparent;cursor:default}
+footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:520px){h1{font-size:23px}.bars li{grid-template-columns:minmax(0,8.5em) 1fr 3.8em;font-size:13px}}
+</style>
+</head>
+<body><main>
+<article>
+<h1>100 个中文网站 AI 搜索可见性实测：门是开着的，但 AI 读不懂</h1>
+<div class="meta">作者：Citable · 数据报告 · <time datetime="2026-10-07">2026 年 10 月 7 日</time> · 样本：100 个首页 + 32 篇文章页</div>
+
+<p class="lead">越来越多的人直接问 AI，而不是自己去搜。AI 搜索回答问题时，会抓取网页、挑出能引用的段落，再附上来源链接。你的网站能不能出现在这些来源里？我们用同一套规则，检测了媒体、SaaS、电商品牌、科技公司、政企高校 5 类、共 100 个中文网站。</p>
+
+<div class="card tldr">
+<strong>结论先看</strong>
+<ul>
+<li><b>门基本是开着的</b>：能检测的 93 个首页中，95% 的 robots.txt 没有挡住主流 AI 搜索爬虫。</li>
+<li><b>但 AI 读不懂</b>：只有 14% 的首页有结构化数据（JSON-LD），3% 声明了网站背后的组织；文章页同时标注了发布日期和更新日期的只有 8%。</li>
+<li><b>约五分之一的首页，服务器返回的 HTML 里几乎没有文字</b>。多数 AI 爬虫不执行 JavaScript，只能读到这份 HTML。</li>
+<li><b>少数大型内容平台主动关门</b>：有的只放行传统搜索引擎，有的只放行部分 AI 爬虫，新出现的 AI 搜索默认被挡在门外。</li>
+</ul>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>95%</b><span>首页放行 AI 搜索爬虫</span></div>
+<div class="stat"><b>14%</b><span>首页有结构化数据</span></div>
+<div class="stat"><b>3%</b><span>首页声明了组织实体</span></div>
+<div class="stat"><b>8%</b><span>文章页同时标注发布与更新日期</span></div>
+</div>
+
+<h2>测了哪些网站，怎么测的？</h2>
+<ul>
+<li><b>样本</b>：5 类网站各 20 个首页（媒体资讯、SaaS 软件、电商与消费品牌、科技公司与大模型厂商、政府与高校与央国企），另从这些首页中自动挑出 32 篇文章或详情页。</li>
+<li><b>时间</b>：2026 年 10 月 7 日，单次检测。</li>
+<li><b>引擎版本</b>：使用 2026-10-07 的检测引擎（与插件 1.0.2 相同）。检测过程中修正了引擎的若干问题（见文末更正）；1.0.1 版插件对少数页面的结论可能不同。</li>
+<li><b>方法</b>：使用 Citable 检测引擎的服务端模式：读取 robots.txt 并按 RFC 9309 判断每个 AI 爬虫能否访问；分别以普通浏览器和 5 个 AI 爬虫的身份请求页面；在不执行 JavaScript 的情况下解析 HTML，共 34 条规则。</li>
+<li><b>口径</b>：比例的分母是「这条检查适用的页面数」。7 个首页拒绝了检测请求或无法建立连接，不计入统计，单独说明。</li>
+</ul>
+<p class="note">局限：服务器冒充爬虫身份的请求，可能和真实爬虫（会经过 IP 验证）看到的结果不同；首页不能代表全站；DeepSeek、Grok 没有公开爬虫名称，无法判断。这些情况我们都记为「无法确认」，不下结论。</p>
+
+<h2>发现一：访问层几乎没问题</h2>
+<ul class="bars" aria-label="首页访问层检查通过率">
+<li title="88 / 93"><span>robots.txt 放行 AI 搜索爬虫</span><span class="track"><span class="fill" style="width:95%"></span></span><span class="v">95%</span></li>
+<li title="88 / 92"><span>以爬虫身份请求正常返回</span><span class="track"><span class="fill" style="width:96%"></span></span><span class="v">96%</span></li>
+</ul>
+<p class="caption">首页，n = 93（「以爬虫身份请求」n = 92，有 1 个站点的探测请求全部出错）。「AI 搜索爬虫」指 OAI-SearchBot、Claude-SearchBot、PerplexityBot、Googlebot、Bingbot 等 12 个用于搜索和实时抓取的爬虫。</p>
+<p>这和不少人的直觉相反：多数中文网站并没有屏蔽 AI 爬虫。真正屏蔽的是少数内容平台，而且大多是有意为之，后面单独介绍。</p>
+<p>另有 7 个首页我们无法检测：2 个拒绝了检测请求（HTTP 403），1 个返回 HTTP 412；还有 4 家央国企官网无法和我们的检测服务器（Node.js，OpenSSL 3 默认配置）建立连接：一家服务器使用了 OpenSSL 3 默认禁用的旧式 TLS 重协商（用 macOS 自带的 curl 可以打开），一家的证书和域名不匹配，两家直接断开连接。我们无法确认真实的 AI 爬虫会不会同样连不上，但这类问题值得运维团队自查。</p>
+
+<h2>发现二：约五分之一的首页，AI 爬虫几乎看不到文字</h2>
+<p>93 个首页中，有 20 个在不执行 JavaScript 时，服务器返回的 HTML 里几乎没有正文（少于 50 个词），这类页面的内容通常要等浏览器运行脚本后才出现。<a href="https://vercel.com/blog/the-rise-of-the-ai-crawler">Vercel 统计过主流 AI 爬虫的抓取行为</a>，多数爬虫不执行 JavaScript。这类首页在 AI 眼里基本是空白的。</p>
+<p>其中还有一个少见的情况：一家大型集团官网的 HTML，<code>&lt;head&gt;</code> 里内联了约 7 MB 的脚本和数据，<code>&lt;body&gt;</code> 从第 7 MB 才开始。按 <a href="https://developers.google.com/search/docs/crawling-indexing/googlebot">Google 官方文档</a>，Google 搜索的 Googlebot 只读取 HTML 的前 2 MB，也就是说它读不到这个首页的正文；其他 AI 爬虫的上限没有公开。</p>
+<p class="note">首页正文少不一定是问题，比如工具类产品的首页本来就字少。更值得关注的是文章页和产品页，下面单独统计。</p>
+
+<h2>发现三：AI 读不懂「你是谁」</h2>
+<ul class="bars" aria-label="首页可读性检查通过率">
+<li title="59 / 93"><span>标题和描述齐全</span><span class="track"><span class="fill" style="width:63%"></span></span><span class="v">63%</span></li>
+<li title="57 / 93"><span>声明了页面语言</span><span class="track"><span class="fill" style="width:61%"></span></span><span class="v">61%</span></li>
+<li title="49 / 93"><span>有 sitemap</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="v">53%</span></li>
+<li title="36 / 93"><span>链接到关于我们 / 联系方式</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="v">39%</span></li>
+<li title="36 / 93"><span>声明了 canonical</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="v">39%</span></li>
+<li title="22 / 93"><span>Open Graph 信息齐全</span><span class="track"><span class="fill" style="width:24%"></span></span><span class="v">24%</span></li>
+<li title="19 / 93"><span>有且只有一个 H1</span><span class="track"><span class="fill" style="width:20%"></span></span><span class="v">20%</span></li>
+<li title="13 / 93"><span>有 JSON-LD 结构化数据</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="v">14%</span></li>
+<li title="3 / 93"><span>声明了组织实体</span><span class="track"><span class="fill" style="width:3%"></span></span><span class="v">3%</span></li>
+</ul>
+<p class="caption">首页，n = 93，按通过率从高到低排列。</p>
+<p>AI 在回答里提到一个品牌，前提是它能把网页和这个品牌对上号。<code>Organization</code> 结构化数据就是告诉机器「这个网站属于谁、官方名称是什么、Logo 在哪、还有哪些官方账号」。93 个首页里只有 3 个这样做了。</p>
+<p class="note">证据强度：Google 和 Bing 官方说明会用结构化数据理解实体；但 <a href="https://ahrefs.com/blog/schema-ai-citations/">Ahrefs 的对照研究</a>没有发现结构化数据能直接提升 AI 引用次数。它的作用是让 AI 准确认出你，而不是保证 AI 一定引用你。</p>
+
+<h2>发现四：文章页的问题集中在「日期」和「结构」</h2>
+<ul class="bars" aria-label="文章页检查通过率">
+<li title="15 / 24"><span>标注了作者</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="v">62%</span></li>
+<li title="17 / 30"><span>正文含具体数据</span><span class="track"><span class="fill" style="width:57%"></span></span><span class="v">57%</span></li>
+<li title="16 / 30"><span>首段直接给出结论</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="v">53%</span></li>
+<li title="16 / 30"><span>引用了外部来源</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="v">53%</span></li>
+<li title="8 / 31"><span>声明了 canonical</span><span class="track"><span class="fill" style="width:26%"></span></span><span class="v">26%</span></li>
+<li title="4 / 31"><span>有 JSON-LD 结构化数据</span><span class="track"><span class="fill" style="width:13%"></span></span><span class="v">13%</span></li>
+<li title="2 / 24"><span>同时标注发布与更新日期</span><span class="track"><span class="fill" style="width:8%"></span></span><span class="v">8%</span></li>
+<li title="3 / 30"><span>有清晰的小节结构</span><span class="track"><span class="fill" style="width:10%"></span></span><span class="v">10%</span></li>
+<li title="1 / 15"><span>用问题做小节标题</span><span class="track"><span class="fill" style="width:7%"></span></span><span class="v">7%</span></li>
+</ul>
+<p class="caption">文章页，n = 31；不同检查的适用页面数不同（例如只有被识别为文章的页面才检查作者和日期），括号里的分母见鼠标悬停提示和文末数据。</p>
+<p><b>日期</b>：24 篇被识别为文章的页面里，7 篇没有任何机器可读的日期，15 篇只有发布日期。遇到时效性问题时，AI 会优先引用能判断「是不是最新」的来源（<a href="https://ahrefs.com/blog/do-ai-assistants-prefer-to-cite-fresh-content/">Ahrefs 的统计</a>显示，AI 助手引用的内容明显比传统搜索结果更新）。</p>
+<p><b>结构</b>：AI 检索会把文章切成段落再挑选。30 篇里只有 3 篇有两个以上清晰的 H2 小节且层级正确；用问题做小节标题的只有 1 篇，而用户问 AI 时，用的几乎都是完整的问句。</p>
+
+<h2>发现五：大型内容平台的两种「关门」方式</h2>
+<h3>1. 白名单式：只放行传统搜索引擎</h3>
+<p>知乎的 robots.txt 只给 Googlebot、Bingbot 和百度系爬虫开了门（另给搜狗和 Google-Extended 开放了个别路径），最后一行 <code>User-agent: *</code> 加 <code>Disallow: /</code> 挡住了其他所有爬虫，包括 ChatGPT、Claude、Perplexity、Kimi 的搜索爬虫。百度首页也是类似的白名单写法。这是平台自己的策略选择，结果是这些 AI 搜索无法直接抓取它们的页面，只能间接使用。</p>
+<h3>2. 选择性放行</h3>
+<p>快手的 robots.txt 明确放行了 GPTBot、OAI-SearchBot、PerplexityBot 和 deepseekbot，但没有列出 Claude-SearchBot、Kimi 等爬虫，所以这些爬虫会落到 <code>User-agent: *</code> 的全站禁止里。如果你也用白名单写法，每出现一个新的 AI 搜索，都要记得补上。</p>
+<p class="note">如果你也用白名单写法，还要注意 robots.txt 的分组规则：按照标准（<a href="https://www.rfc-editor.org/rfc/rfc9309">RFC 9309</a>），连续的多行 <code>User-agent</code> 属于同一组，下面的规则对它们同时生效。想给不同爬虫不同的规则，组与组之间要用规则行隔开。</p>
+
+<h2>哪类网站做得最好？</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>类别</th><th class="n">可检测首页</th><th class="n">平均分</th></tr></thead>
+<tbody>
+<tr><td>SaaS 软件</td><td class="n">20</td><td class="n">86.7</td></tr>
+<tr><td>电商与消费品牌</td><td class="n">20</td><td class="n">83.3</td></tr>
+<tr><td>科技公司与大模型厂商</td><td class="n">19</td><td class="n">83.3</td></tr>
+<tr><td>媒体资讯</td><td class="n">19</td><td class="n">82.6</td></tr>
+<tr><td>政府、高校与央国企</td><td class="n">15</td><td class="n">77.9</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">分数是 34 条规则按证据强度加权的结果，访问层权重最高。各类首页大多没有挡住爬虫，所以平均分差距不大；差别主要在结构化和可发现两个维度。政企类有 5 个首页无法检测，没有计入。</p>
+
+<h2>网站该怎么改？按投入从小到大排</h2>
+<ol>
+<li><b>检查 robots.txt 的分组</b>。每一组规则前空一行；想区分搜索和训练，就分别写：放行 <code>OAI-SearchBot</code>、<code>Claude-SearchBot</code>、<code>PerplexityBot</code> 等搜索爬虫，单独屏蔽 <code>GPTBot</code>、<code>ClaudeBot</code>、<code>Google-Extended</code> 等训练爬虫。屏蔽训练爬虫不会影响 AI 搜索引用。</li>
+<li><b>给首页加上组织信息</b>：
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "你的品牌全称",
+  "url": "https://www.example.com/",
+  "logo": "https://www.example.com/logo.png",
+  "sameAs": ["https://weibo.com/xxx", "https://www.linkedin.com/company/xxx"]
+}
+&lt;/script&gt;</code></pre></li>
+<li><b>文章页同时标注发布和更新日期</b>，用 <code>Article</code> 结构化数据里的 <code>datePublished</code> 和 <code>dateModified</code>，页面上也写出来。</li>
+<li><b>补齐 canonical、sitemap 和 Open Graph</b>。几乎都是模板级改动，改一次全站生效。</li>
+<li><b>正文用 H2 分小节，部分小节用问句做标题，首段先给结论</b>。这是写作习惯的改变，对新文章立刻有效。</li>
+<li><b>正文靠 JavaScript 渲染的页面，改成服务端渲染或静态生成</b>。投入最大，但对 AI 爬虫的影响也最直接。</li>
+</ol>
+
+<div class="cta" id="install">
+<strong>想知道自己的网站怎么样？</strong>
+<p style="margin:8px 0 0">Citable 是一个免费的浏览器插件：打开任意网页点一下，就能看到 14 个国内外 AI 平台（其中 12 个可以判断，另外 2 个没有公开爬虫）能不能引用这个页面、为什么，以及可以直接复制的修复代码。检测在你的浏览器本地完成，网页内容不会上传到我们的服务器。</p>
+<div class="btns">
+<a class="btn" data-store="edge" data-campaign="report_2026_10" data-pending-text="Edge 版审核中，即将上线">安装 Edge 版</a>
+<a class="btn secondary" data-store="chrome" data-campaign="report_2026_10" data-pending-text="Chrome 版审核中，即将上线">安装 Chrome 版</a>
+</div>
+<p data-notify hidden class="note" style="margin:12px 0 0">想在上线当天收到通知？<a href="mailto:wuyuwentian@gmail.com?subject=Citable%20%E4%B8%8A%E7%BA%BF%E6%8F%90%E9%86%92&amp;body=%E4%B8%8A%E7%BA%BF%E5%90%8E%E8%AF%B7%E5%91%8A%E8%AF%89%E6%88%91%E3%80%82">写一封主题为「上线提醒」的邮件给我们</a>，上线后回复你一次，不做其他用途。</p>
+<p class="note" style="margin:10px 0 0">国内网络通常可以直接打开 Edge 加载项商店。</p>
+</div>
+
+<h2>参考资料</h2>
+<ul>
+<li><a href="https://www.rfc-editor.org/rfc/rfc9309">RFC 9309：Robots Exclusion Protocol</a></li>
+<li><a href="https://developers.openai.com/api/docs/bots">OpenAI：爬虫说明（OAI-SearchBot、GPTBot、ChatGPT-User）</a></li>
+<li><a href="https://developers.google.com/search/docs/appearance/ai-features">Google 搜索中心：AI 功能与你的网站</a></li>
+<li><a href="https://vercel.com/blog/the-rise-of-the-ai-crawler">Vercel：The rise of the AI crawler</a></li>
+<li><a href="https://ahrefs.com/blog/schema-ai-citations/">Ahrefs：结构化数据与 AI 引用</a></li>
+</ul>
+
+<h2>数据与更正</h2>
+<ul>
+<li><b>更正（2026-10-07）</b>：初版把一家科技媒体「短链接路径被 robots.txt 禁止」误读为「所有文章页被禁止」。这些短链接会跳转到另一条允许抓取的文章路径，文章本身不受影响。我们已删除这条结论，修正了检测工具（改为按跳转后的最终地址判断），并用修正后的工具重跑了全部样本，本页数字均已更新。</li>
+<li><b>修订（2026-10-07）</b>：按独立复核意见，把「Googlebot 只处理前 15 MB」更正为官方文档的 2 MB；改进文章页识别后再次重跑全部样本（被识别为文章的页面从 17 篇增加到 24 篇，作者、日期两项比例随之变化）。</li>
+<li>逐站结果（含每项检查的状态）：<a href="data/report-2026-10.csv">report-2026-10.csv</a></li>
+<li>认为某条结论不准确？请通过<a href="feedback.html">反馈页</a>告诉我们，核实后会在这里更正并注明。</li>
+<li>我们计划每月复测一次同一批网站，观察变化。</li>
+</ul>
+</article>
+<footer>Citable · <a href="./">关于我们</a> · <a href="feedback.html">联系我们</a> · <a href="privacy.html">隐私政策</a></footer>
+</main>
+<script src="links.js"></script>
+</body></html>
