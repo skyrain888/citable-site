@@ -100,21 +100,38 @@
     feedbackLine(box, r.url, ms, cached);
   }
 
+  /** 拿不到页面时按原因区分：被拒绝（401/403/429）不下结论；404 / 5xx / 连接失败时，真实的 AI 爬虫同样拿不到，照常展示平台结论。 */
+  function unscoredKind(r) {
+    const code = Number((/HTTP (\d{3})/.exec(r.unscored) || [])[1] || 0);
+    if ([401, 403, 407, 429].includes(code)) return { refused: true };
+    if (code === 404 || code === 410) return { title: `页面不存在（HTTP ${code}），AI 爬虫同样拿不到`, hint: "请检查网址是否拼写正确、文章是否已删除或移动。" };
+    if (code >= 500) return { title: `网站服务器出错（HTTP ${code}），AI 爬虫此时也拿不到内容`, hint: "如果是偶发故障，稍后再测一次。" };
+    if (code) return { title: `页面返回 HTTP ${code}，拿不到正文`, hint: "AI 爬虫遇到同样的响应时也拿不到内容。" };
+    return { title: "连接失败，没能拿到页面", hint: "网站可能暂时无法访问，或拒绝了来自服务器的连接。" };
+  }
+
   function render(box, data, ms) {
     const r = data.report;
     box.replaceChildren();
-    if (r.unscored) return renderUnscored(box, r, ms, data.cached);
+    const kind = r.unscored ? unscoredKind(r) : null;
+    if (kind?.refused) return renderUnscored(box, r, ms, data.cached);
 
     const head = el("div", "res-head");
     const ring = el("div", "ring");
-    ring.style.setProperty("--p", r.score);
-    ring.dataset.tone = r.score >= 75 ? "ok" : r.score >= 60 ? "warn" : "bad";
-    ring.append(el("b", null, String(r.score)), el("span", null, r.grade));
+    if (kind) {
+      ring.dataset.tone = "bad";
+      ring.append(el("b", null, "—"), el("span", null, "无法评分"));
+    } else {
+      ring.style.setProperty("--p", r.score);
+      ring.dataset.tone = r.score >= 75 ? "ok" : r.score >= 60 ? "warn" : "bad";
+      ring.append(el("b", null, String(r.score)), el("span", null, r.grade));
+    }
     const meta = el("div", "res-meta");
-    meta.append(el("strong", null, headline(r)), el("span", "res-url", r.url));
+    meta.append(el("strong", null, kind ? kind.title : headline(r)), el("span", "res-url", r.url));
+    if (kind) meta.append(el("span", "note", kind.hint));
     if (r.requestedUrl) meta.append(el("span", "note", "已跟随跳转，按最终页面检测"));
-    for (const c of r.caps || []) meta.append(el("span", "cap", `分数上限 ${c.max}：${c.reason}`));
-    meta.append(el("span", "note", "快速检测：未以 AI 爬虫身份实测请求，CDN / 防火墙的拦截查不出来"));
+    if (!kind) for (const c of r.caps || []) meta.append(el("span", "cap", `分数上限 ${c.max}：${c.reason}`));
+    if (!kind) meta.append(el("span", "note", "快速检测：未以 AI 爬虫身份实测请求，CDN / 防火墙的拦截查不出来"));
     head.append(ring, meta);
     box.append(head);
 
@@ -155,7 +172,7 @@
 
     const checks = new Map(r.checks.map((c) => [c.id, c]));
     const top = (r.topIssues || []).map((id) => checks.get(id)).filter(Boolean).slice(0, 3);
-    if (top.length) {
+    if (top.length && !kind) {
       const t = el("div", "res-group");
       t.append(el("h2", "res-h", "先改这 3 件事"));
       const ol = el("ol", "fixes");
@@ -247,7 +264,8 @@
           render(box, body, ms);
           hero?.classList.add("has-result");
           const r = body.report;
-          say(r.unscored ? "检测完成：这个网站拒绝了检测服务器，无法评分" : `检测完成：${r.score} 分，${headline(r)}`);
+          const k = r.unscored ? unscoredKind(r) : null;
+          say(!r.unscored ? `检测完成：${r.score} 分，${headline(r)}` : k.refused ? "检测完成：这个网站拒绝了检测服务器，无法评分" : `检测完成：${k.title}`);
           const share = new URL(location.href);
           share.searchParams.set("url", r.requestedUrl || r.url);
           history.replaceState(null, "", share.pathname + share.search + "#check");
